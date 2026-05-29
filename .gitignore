@@ -1,6 +1,9 @@
 # Ignorar dependências do Node
 node_modules/
 
+# Ignorar a pasta de APIs inteira
+api/
+
 # Ignorar certificados e chaves privadas
 certs/
 *.p12
