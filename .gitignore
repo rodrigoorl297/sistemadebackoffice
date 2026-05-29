@@ -4,6 +4,9 @@ node_modules/
 # Ignorar a pasta de APIs inteira
 api/
 
+# Ignorar a pasta do Supabase (migrações locais)
+supabase/
+
 # Ignorar certificados e chaves privadas
 certs/
 *.p12
