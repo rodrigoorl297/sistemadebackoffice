@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="SOU + BLU">
+  <defs>
+    <linearGradient id="bg" x1="8" y1="8" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1e9bff"/>
+      <stop offset="100%" stop-color="#031B49"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="url(#bg)"/>
+  <text x="64" y="52" text-anchor="middle" font-family="Nunito,Arial,sans-serif" font-size="26" font-weight="900" fill="#ffffff">SOU</text>
+  <text x="64" y="88" text-anchor="middle" font-family="Nunito,Arial,sans-serif" font-size="30" font-weight="900" fill="#7dd3fc">+ BLU</text>
+</svg>

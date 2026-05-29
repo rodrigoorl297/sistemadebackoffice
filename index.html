@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <script src="js/base-path.js"></script>
+  <title>SOU+BLU · Entrar</title>
+  <link rel="icon" href="images/logo.png" type="image/png" sizes="32x32"/>
+  <link rel="apple-touch-icon" href="images/logo.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/variables.css"/>
+  <link rel="stylesheet" href="css/global.css"/>
+  <link rel="stylesheet" href="css/login.css"/>
+  <script>window.SOUBLU_CONFIG=window.SOUBLU_CONFIG||{};</script>
+  <script src="js/config.js" defer></script>
+  <script src="js/db.js" defer></script>
+  <script src="js/auth.js" defer></script>
+</head>
+<body class="login-body">
+<div class="login-wrapper">
+
+  <div class="login-left">
+    <div class="brand">
+      <div class="brand-logo">
+        <img data-soublu-logo="images/logo.png" src="images/logo.png" width="52" height="52" alt="Logo SOU+BLU"/>
+        <span class="brand-name">SOU <span>+ BLU</span></span>
+      </div>
+      <h1 class="login-headline">Reconhecimento<br/>que transforma.</h1>
+      <p class="login-sub">Seu saldo, seus prêmios,<br/>sua conquista.</p>
+    </div>
+    <div class="login-illustration"></div>
+  </div>
+
+  <div class="login-right">
+    <div class="login-card">
+
+      <h2 style="text-align:center;margin-bottom:4px;">Entrar na plataforma</h2>
+      <p class="login-desc" style="text-align:center;">Informe suas credenciais</p>
+
+      <div id="loginError" class="alert alert-error" style="display:none;margin-top:12px;"></div>
+
+      <form id="loginForm" autocomplete="off" novalidate style="margin-top:20px;">
+        <div class="form-group">
+          <label for="loginEmail">E-mail ou Matrícula</label>
+          <input type="text" id="loginEmail" placeholder="seu@email.com" autocomplete="username" required/>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Senha</label>
+          <div class="password-wrap" style="position: relative;">
+            <input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password" required/>
+            <button type="button" class="toggle-pass" onclick="togglePassword('loginPassword',this)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 12px; font-weight: 700; color: var(--color-primary); cursor: pointer;">Mostrar</button>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full btn-lg" id="loginBtn" style="margin-top:10px;">
+          <span class="btn-text">Entrar</span>
+          <span class="btn-loader" style="display:none;">Verificando...</span>
+        </button>
+      </form>
+
+      <p class="login-footer" style="margin-top:28px;">SOU + BLU &copy; 2026</p>
+    </div>
+  </div>
+</div>
+<script src="js/ui.js" defer></script>
+<script src="js/login.js" defer></script>
+</body>
+</html>

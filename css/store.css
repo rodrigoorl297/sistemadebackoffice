@@ -1,0 +1,535 @@
+/* =============================================
+   SouElite BNG – Store & Dashboard Styles
+   ATUALIZADO: coins → R$, imagens reais
+   ============================================= */
+
+/* ===== STAT CARDS ===== */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.stat-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  padding: var(--space-lg);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition);
+}
+.stat-card:hover { box-shadow: var(--shadow-md); }
+
+.stat-icon {
+  width: 48px; height: 48px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.stat-icon svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+  stroke-width: 2;
+}
+.stat-icon.orange { background: #fff7ed; color: #ea580c; }
+.stat-icon.yellow { background: #fefce8; color: #ca8a04; }
+.stat-icon.green  { background: var(--color-success-light); color: #059669; }
+.stat-icon.blue   { background: var(--color-info-light); color: #2563eb; }
+.stat-icon.purple { background: #f5f3ff; color: #7c3aed; }
+.stat-icon.teal   { background: #ecfeff; color: #0891b2; }
+
+.stat-info { flex: 1; min-width: 0; }
+.stat-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--color-text);
+  line-height: 1;
+}
+.stat-sub {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+/* ===== BALANCE BANNER (era coins-banner) ===== */
+.coins-banner {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  margin-bottom: var(--space-xl);
+  box-shadow: 0 4px 20px rgba(74, 127, 255, 0.25);
+}
+.coins-banner-left h3 {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  opacity: 0.88;
+  margin-bottom: 4px;
+}
+.coins-banner-left .coins-amount {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+.coins-banner-right { font-size: 44px; opacity: 0.75; }
+
+/* ===== FILTER BAR ===== */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  padding: 7px 16px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  color: var(--color-text-secondary);
+}
+.filter-chip:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.filter-chip.active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+/* ===== PRODUCT GRID ===== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-md);
+}
+
+.product-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-slow);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.product-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+  border-color: var(--color-primary);
+}
+
+.product-badge-wrap {
+  position: absolute;
+  top: 10px; left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 2;
+}
+
+/* Imagem do produto */
+.product-img-wrap {
+  aspect-ratio: 1;
+  background: var(--color-surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.product-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+.product-card:hover .product-img-wrap img { transform: scale(1.04); }
+.product-img-wrap .product-emoji {
+  font-size: 72px;
+  line-height: 1;
+  transition: transform var(--transition-slow);
+}
+.product-card:hover .product-emoji { transform: scale(1.08); }
+
+.product-info {
+  padding: 14px 14px 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.product-category {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-text-muted);
+}
+
+.product-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+/* Preço em R$ */
+.product-price {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--color-primary);
+}
+/* Alias legado */
+.product-coins {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--color-primary);
+}
+
+.product-stock {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+.product-card .btn-buy {
+  margin: 0 14px 14px;
+  font-size: 13px;
+  padding: 9px;
+}
+
+/* ===== PRODUCT DETAIL MODAL ===== */
+.product-detail-modal .modal { max-width: 580px; }
+
+.product-detail-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: var(--color-surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-md);
+}
+.product-detail-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-detail-price {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--color-primary);
+}
+
+/* ===== CARRINHO ===== */
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.cart-item:last-child { border-bottom: none; }
+
+.cart-item-img {
+  width: 60px; height: 60px;
+  background: var(--color-surface-2);
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+.cart-item-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+.cart-item-info { flex: 1; min-width: 0; }
+.cart-item-name {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cart-item-price {
+  font-size: 13px;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.cart-qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cart-qty button {
+  width: 28px; height: 28px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  cursor: pointer;
+  font-size: 15px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--transition);
+}
+.cart-qty button:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.cart-qty span { font-weight: 700; min-width: 20px; text-align: center; }
+
+/* ===== PEDIDOS ===== */
+.order-card {
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+.order-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: var(--color-surface-2);
+  border-bottom: 1px solid var(--color-border);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.order-card-body { padding: 14px 18px; }
+
+/* ===== TABELA FUNCIONÁRIOS ===== */
+.employee-avatar-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.points-bar-wrap { min-width: 90px; }
+.points-bar {
+  height: 6px;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.points-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  border-radius: var(--radius-full);
+  transition: width 0.6s ease;
+}
+
+/* ===== RANKING ===== */
+.ranking-list { display: flex; flex-direction: column; gap: 10px; }
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: box-shadow var(--transition);
+}
+.ranking-item:hover { box-shadow: var(--shadow-sm); }
+
+.ranking-pos {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 900;
+  min-width: 32px;
+  text-align: center;
+}
+.ranking-pos.gold   { color: #FFB800; }
+.ranking-pos.silver { color: #8c9aa8; }
+.ranking-pos.bronze { color: #c17f5a; }
+
+.ranking-name { font-weight: 700; }
+.ranking-dept { font-size: 12px; color: var(--color-text-muted); }
+
+/* Exibe saldo R$ no ranking */
+.ranking-coins {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+/* ===== PERFIL ===== */
+.profile-header {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+  border: 1px solid var(--color-border);
+}
+.profile-avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 900;
+  color: #fff;
+  border: 3px solid rgba(255,255,255,0.3);
+  flex-shrink: 0;
+}
+.profile-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 900;
+}
+.profile-meta { font-size: 14px; opacity: 0.7; margin-top: 4px; }
+.profile-coins {
+  margin-left: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.profile-coins .big-coins {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 900;
+  color: #4ade80;
+}
+.profile-coins p { font-size: 13px; opacity: 0.75; margin: 0; }
+
+/* ===== TRANSAÇÕES ===== */
+.tx-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.tx-item:last-child { border-bottom: none; }
+
+.tx-icon {
+  width: 40px; height: 40px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.tx-icon.earn  { background: var(--color-success-light); }
+.tx-icon.spend { background: var(--color-primary-light); }
+
+.tx-info { flex: 1; min-width: 0; }
+.tx-title {
+  font-weight: 700;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tx-date  { font-size: 11px; color: var(--color-text-muted); margin-top: 2px; }
+
+.tx-amount {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+.tx-amount.earn  { color: var(--color-success); }
+.tx-amount.spend { color: var(--color-danger); }
+
+/* ===== MODAL SAQUE ===== */
+.term-box {
+  background: var(--color-surface-2);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  max-height: 180px;
+  overflow-y: auto;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin: 16px 0;
+}
+
+/* ===== PAGINAÇÃO ===== */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: var(--space-lg);
+}
+.pagination button {
+  min-width: 36px; height: 36px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: 14px; font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  color: var(--color-text);
+}
+.pagination button:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.pagination button.active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 600px) {
+  .product-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .profile-header { flex-direction: column; text-align: center; }
+  .profile-coins { margin-left: 0; }
+}

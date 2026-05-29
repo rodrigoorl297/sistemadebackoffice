@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta http-equiv="refresh" content="0;url=pages/admin.html" />
+  <title>SOU+BLU · Painel</title>
+  <link rel="icon" href="images/logo.png" type="image/png"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f8fafc;
+      color: #334155;
+    }
+    a {
+      color: #0ea5e9; /* Cor base do SOU+BLU */
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <script>
+    // Uso do replace evita que o usuário volte para esta página ao clicar no botão "Voltar" do navegador
+    if (window.location.protocol !== 'file:') {
+      window.location.replace('pages/admin.html');
+    } else {
+      window.location.href = 'pages/admin.html';
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecionando para o painel administrativo...</p>
+  <p>Se você não for redirecionado automaticamente, <a href="pages/admin.html">clique aqui</a>.</p>
+</body>
+</html>
