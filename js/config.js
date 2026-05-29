@@ -7,10 +7,9 @@
      * Backend ativo: Supabase (único banco suportado)
      */
     const DB_BACKEND = 'supabase';
-    const SUPABASE_URL = _cfg.SUPABASE_URL || 'https://dqptnlywbarvznpzgtuj.supabase.co';
+    const SUPABASE_URL = _cfg.SUPABASE_URL || 'APIAPI';
     /** Chave anon (pública); não usar service_role no browser. */
-    const SUPABASE_KEY = _cfg.SUPABASE_ANON_KEY || _cfg.SUPABASE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRxcHRubHl3YmFydnpucHpndHVqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1NzQ5NTEsImV4cCI6MjA5NDE1MDk1MX0.ntbw10N2fno5hbdLWaKgz11jk-n2gvxZ7zjI0O_Xt1I';
-
+    const SUPABASE_KEY = _cfg.SUPABASE_ANON_KEY || _cfg.SUPABASE_KEY || 'TOKENM'
     const SUPABASE_CONFIGURED = !!(_cfg.SUPABASE_DISABLED ? false : (SUPABASE_URL && SUPABASE_KEY));
     if (typeof window !== 'undefined') {
       window.SOUBLU_RUNTIME = {
