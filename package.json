@@ -1,9 +1,0 @@
-{
-  "name": "sou-mais-blu",
-  "private": true,
-  "description": "SOU + BLU – plataforma de reconhecimento e gestão",
-  "scripts": {
-    "start": "npx --yes serve -l 5503 .",
-    "start:php": "php -S localhost:8080 -t ."
-  }
-}
