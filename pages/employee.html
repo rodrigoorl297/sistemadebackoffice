@@ -1,30 +1,1782 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../js/base-path.js"></script><title>SOU+BLU · Área</title><link rel="icon" href="../images/logo.png" type="image/png" sizes="32x32"/><link rel="apple-touch-icon" href="../images/logo.png"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"/><link rel="stylesheet" href="../css/variables.css"/><link rel="stylesheet" href="../css/global.css"/><link rel="stylesheet" href="../css/layout.css"/><link rel="stylesheet" href="../css/store.css"/><link rel="stylesheet" href="../css/withdrawal.css"/><link rel="stylesheet" href="../css/colors-orange.css"/><script>window.SOUBLU_CONFIG=window.SOUBLU_CONFIG||{};</script><script src="../js/config.js" defer></script><script src="../js/db.js" defer></script><script src="../js/auth.js" defer></script><script src="../js/proposals.js" defer></script><script src="../js/tickets.js" defer></script></head><body><div class="app-layout"><nav class="sidebar" id="sidebar"><div class="sidebar-brand"><div class="sidebar-logo"><img data-soublu-logo="images/logo.png" src="../images/logo.png" width="32" height="32" alt="SOU+BLU"/></div><span class="sidebar-title">SOU <span >+ BLU</span></span></div><div class="sidebar-nav"><span class="sidebar-section-label">Principal</span><button class="nav-item active" data-section="secStore"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg></span><span class="nav-label">Loja</span><span class="nav-badge" id="cartBadge" style="display:none;">0</span></button><button class="nav-item" data-section="secOrders"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><polygon points="12 22.08 12 12 3 6.92 3 17.08 12 22.08"></polygon><polygon points="12 22.08 12 12 21 6.92 21 17.08 12 22.08"></polygon><polygon points="12 12 3 6.92 12 1.84 21 6.92 12 12"></polygon><line x1="3.27" y1="6.92" x2="12" y2="12.01"></line><line x1="20.73" y1="6.92" x2="12" y2="12.01"></line></svg></span><span class="nav-label">Meus Pedidos</span></button><button class="nav-item" data-section="secProposals" id="navProposals" style="display:none;"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></span><span class="nav-label">Propostas</span></button><button class="nav-item" data-section="secSimulacao" id="navSimulacao" style="display:none;"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg></span><span class="nav-label">Simulação</span></button><button class="nav-item" data-section="secTickets" id="navTickets"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></span><span class="nav-label">Chamados</span></button><div class="sidebar-divider reports-section"></div><span class="sidebar-section-label reports-section">Relatórios</span><button class="nav-item" data-section="secMeetings"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span><span class="nav-label">Reuniões</span><span class="nav-badge meetings-badge" id="meetingsBadge" style="display:none;">0</span></button><button class="nav-item" data-section="secRanking"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></span><span class="nav-label">Ranking</span></button><div class="sidebar-divider"></div><button class="nav-item" data-section="secProfile"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span><span class="nav-label">Meu Perfil</span></button></div><div class="sidebar-footer"><button class="btn-logout" onclick="Auth.logout()"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></span><span class="nav-label">Sair</span></button><div class="sidebar-user"><div class="avatar avatar-sm" id="sidebarAvatar" style="background:var(--color-primary)"></div><div class="sidebar-user-info"><div class="sidebar-user-name" id="sidebarName">–</div><div class="sidebar-user-role" id="sidebarRole">Funcionário</div></div></div><button class="sidebar-toggle" id="sidebarToggle">⇄</button></div></nav><div class="main-area" id="mainArea"><header class="topbar"><span class="topbar-title" id="topbarTitle">Loja</span><div class="topbar-actions"><div class="search-bar topbar-search"><span class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span><input type="text" id="storeSearch" placeholder="Buscar produto..." oninput="filterProducts()"/></div><button class="btn btn-outline btn-sm" onclick="openCart()"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;vertical-align: middle;"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>Carrinho <span id="cartCount">(0)</span></button><div style="font-size:14px;font-weight:700;color:var(--color-primary);display:flex;align-items:center;gap:4px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--color-accent);"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12M12 12H8m8 0h-4"></path></svg><span id="topbarPoints">0 pts</span></div><button class="btn btn-ghost btn-sm" onclick="Auth.logout()"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;vertical-align: middle;"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>Sair</button></div></header><main class="page-content"><section class="section active" id="secStore"><div class="coins-banner"><div class="coins-banner-left"><h3>Seus pontos disponíveis</h3><div class="coins-amount" id="bannerPoints">0 pts</div></div><div class="coins-banner-right"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.8; color: #fff;"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12M12 12H8m8 0h-4"></path></svg></div></div><div class="filter-bar" id="categoryFilter"></div><div class="product-grid" id="productGrid"></div></section><section class="section" id="secOrders"><div class="page-header"><div class="page-header-text"><h2>Meus Pedidos</h2><p>Histórico de compras</p></div></div><div id="ordersContainer"></div></section><section class="section" id="secRanking"><div class="page-header"><div class="page-header-text"><h2>Ranking</h2><p>Classificação por desempenho — pontuação não exibida (LGPD)</p></div></div><div class="card card-padded"><div class="ranking-list" id="rankingList"></div></div></section><section class="section" id="secSimulacao"><div class="page-header"><div class="page-header-text"><h2>Simulação de Troco</h2><p>Calcule saldo devedor, liberado e troco estimado pela tabela NEO / AKI</p></div></div><div class="card card-padded sim-troco-card"><div class="sim-troco-header"><h2>Simulação de troco</h2><p>Parcela, tabela (fator) e valores estimados — apenas para consulta rápida. A tabela oficial da proposta continua sendo definida pelo Financeiro.</p></div><div class="sim-troco-inputs"><div class="form-group"><label for="simParcela">Valor da parcela (R$)</label><input type="number" id="simParcela" class="form-control" placeholder="0,00" step="0.01" min="0" value="800"/></div><div class="form-group"><label for="simTabela">Tabela</label><select id="simTabela" class="form-control"></select><div id="simTabelaHint"></div></div></div><div class="sim-troco-rows"><div class="sim-troco-row"><span>Saldo devedor</span><strong id="simSaldoDevedor">—</strong></div><div class="sim-troco-row"><span>Saldo liberado</span><strong id="simSaldoLiberado">—</strong></div></div><div class="sim-troco-margem"><div class="form-group"><label for="simMargemAdicional">Margem adicional (R$)</label><input type="number" id="simMargemAdicional" class="form-control" placeholder="0,00" step="0.01" min="0" value="0"/></div><div class="sim-troco-row sim-troco-row--full sim-troco-row--hidden"><span>Margem liberada (margem ÷ fator da tabela)</span><strong id="simMargemLiberada">—</strong></div></div><div class="sim-troco-result"><div class="sim-troco-result-label">Troco estimado</div><div class="sim-troco-result-value" id="simTrocoValor">—</div></div><p class="sim-troco-formulas"><code>Saldo devedor = parcela × 22</code><br><code>Saldo liberado = parcela ÷ fator da tabela</code><br><code>Margem liberada = margem adicional ÷ fator da tabela</code><br><code>Troco = liberado − devedor + margem liberada</code></p></div></section><section class="section" id="secProposals"><div class="page-header"><div class="page-header-text"><h2>Propostas</h2><p>Cadastro e acompanhamento de propostas</p></div><div style="display:flex; gap: 8px;"><button class="btn btn-primary" onclick="Clients.openModal()">+ Novo Cliente</button><button class="btn btn-primary" onclick="Proposals.openModal()">+ Nova Proposta</button></div></div><div class="card card-padded" style="margin-bottom: 20px; display:none;" id="propFormContainer"><div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 15px;"><h3 style="margin: 0;">Cadastrar Proposta</h3><button class="btn btn-ghost btn-sm" onclick="document.getElementById('propFormContainer').style.display='none'"> Fechar</button></div><div class="form-row" style="margin-bottom: 20px;"><div class="form-group" style="flex:1;"><input type="text" id="propCpf" class="form-control" placeholder="Digite o CPF do cliente já cadastrado"></div><button class="btn btn-primary" style="height: 44px;" onclick="Proposals.searchCpf()">Buscar Cliente</button></div><div id="propFormArea" style="display:none; margin-top: 20px;"><div style="background: var(--color-surface-2); padding: 15px; border-radius: var(--radius-md); margin-bottom: 20px;"><h4 style="margin-top: 0; margin-bottom: 10px;">Dados do Cliente</h4><div id="propClientSummary" style="font-size: 14px;"></div><input type="hidden" id="propClientName"></div><!-- USO VENDEDOR --><h4 style="margin-top: 20px; margin-bottom: 12px; color: var(--color-primary);"> Dados da Proposta — Uso Vendedor</h4><div class="form-row" id="propNumeroValorRow" style="margin-top:12px;"><div class="form-group"><label id="propNumeroLabel">Nº Proposta</label><input type="text" id="propNumero" class="form-control" placeholder="Número da proposta"></div><div class="form-group"><label id="propValorLabel">Valor Proposta (R$)</label><input type="number" id="propValor" class="form-control" placeholder="0,00" step="0.01" min="0"></div></div><input type="hidden" id="propTabela" value="NORMAL"><input type="hidden" id="propDesconto" value="0"><input type="hidden" id="propValorFinalDisplay" value=""><div class="form-row" style="margin-top:12px;"><div class="form-group"><label>Matrícula</label><input type="text" id="propMatricula" class="form-control" placeholder="Matrícula do cliente"></div><div class="form-group"><label>Senha Contracheque</label><input type="text" id="propSenhaContracheque" class="form-control" placeholder="Senha do contracheque"></div><div class="form-group"><label>Senha Consignação</label><input type="text" id="propSenhaConsignacao" class="form-control" placeholder="Senha da consignação"></div></div><div class="form-row" style="margin-top: 12px;"><div class="form-group"><label>Produto</label><select id="propProduct" class="form-control"><option value="">Selecione o Produto</option><option value="NOVO">NOVO</option><option value="COMPRA DE DÍVIDA">COMPRA DE DÍVIDA</option><option value="CARTÃO">CARTÃO</option></select></div><div class="form-group"><label>Convênio</label><select id="propConvenio" class="form-control" onchange="Proposals.updateEntidades()"><option value="">Selecione o Convênio</option><option value="FEDERAL">FEDERAL</option><option value="ESTADUAL">ESTADUAL</option><option value="MUNICIPAL">MUNICIPAL</option></select></div><div class="form-group"><label>Entidade / Órgão</label><select id="propEntidade" class="form-control"><option value="">Selecione a Entidade</option></select></div></div><div class="form-row" id="propEtapaVendedorRow" style="margin-top:12px;"><div class="form-group" style="flex:1;"><label>Situação da Proposta</label><select id="propEtapaVendedor" class="form-control"><option value="">Selecione</option><option value="AG. BOLETO">Aguardando boleto</option><option value="Digitação">Digitação</option></select></div></div><div class="form-row" style="margin-top:12px;"><div class="form-group" style="flex:1;"><label>Número de Protocolo</label><input type="text" id="propProtocolo" class="form-control" placeholder="Número de protocolo"></div></div><div class="form-group" style="margin-top:12px;"><label>Observações do Vendedor</label><textarea id="propObs" class="form-control" rows="3" placeholder="Observações gerais sobre a proposta..."></textarea></div><!-- Anexos — pastas pré-definidas + opção de nova pasta --><div id="propAnexosSection"><h4 id="propAnexosTitle" style="margin-top:24px;margin-bottom:14px;color:var(--color-primary);">Documentos (opcional)</h4><div id="propAnexosFolders"></div><button type="button" class="btn btn-outline btn-sm" id="propAddCustomFolderBtn" style="margin-top:10px;" onclick="Proposals.addCustomFolder(this)">+ Nova pasta</button></div><!-- campos ocultos para compatibilidade legado --><input type="hidden" id="propAnexos"><input type="hidden" id="filePaystub"><input type="hidden" id="fileIdentidade"><input type="hidden" id="fileBoleto1"><input type="hidden" id="fileBoleto2"><input type="hidden" id="fileBoleto3"><input type="hidden" id="fileBoleto4"><input type="hidden" id="fileBoleto5"><input type="hidden" id="fileExtrato1"><input type="hidden" id="fileExtrato2"><button class="btn btn-primary" style="margin-top:4px;width:100%;" onclick="Proposals.submit()">Enviar Proposta</button></div></div><div class="card card-padded"><div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:15px;"><h3 style="margin:0;">Minhas Propostas</h3></div><div id="proposalsList"></div><div id="employeeProposalsPagination"></div></div></section><section class="section" id="secTickets"><div class="page-header"><div class="page-header-text"><h2>Chamados</h2><p>Abra chamados para outros departamentos</p></div></div><div class="card card-padded" style="margin-bottom: 20px;"><h3 style="margin-bottom: 15px;">Abrir Novo Chamado</h3><div style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px;"><select id="ticketDept" class="form-control" onchange="Tickets.updateSubjects()"><option value="">Selecione o Departamento</option></select><select id="ticketSubject" class="form-control"><option value="">Selecione o Assunto</option></select></div><textarea id="ticketDesc" class="form-control" placeholder="Descreva o problema/solicitação..." style="margin-top:15px;"></textarea><div style="margin-top:15px;"><label>Anexo (Opcional)</label><input type="file" id="ticketFile" class="form-control" accept="image/*,.pdf"></div><button class="btn btn-primary" style="margin-top: 20px;" onclick="Tickets.submit()">Abrir Chamado</button></div><div class="card card-padded"><h3 style="margin-bottom: 15px;">Meus Chamados Abertos</h3><div id="ticketsList"></div></div></section><section class="section" id="secMeetings"><div class="page-header"><div class="page-header-text"><h2>Reuniões</h2><p>Convocações da gestão — registre sua ciência do termo quando solicitado</p></div></div><div id="meetingsAdminRoot"></div><div id="meetingsEmployeeRoot"><div class="text-muted text-center" style="padding:24px;">Carregando…</div></div></section><section class="section" id="secProfile"><div class="profile-header" id="profileHeader"></div><div id="ptsToggleBlock" style="display:none;"></div><!-- DASHBOARD DE PROPOSTAS --><div id="propDashboard" style="display:none; margin-top: var(--space-lg);"><h3 style="font-family:var(--font-display);font-weight:800;margin-bottom:16px;">Dashboard de Propostas</h3><!-- KPIs --><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;" id="propKpis"></div><!-- Gráficos --><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;"><div class="card card-padded"><h4 style="margin-bottom:14px;font-size:14px;font-weight:700;">Propostas por Mês</h4><div id="chartMes" style="height:160px;display:flex;align-items:flex-end;gap:6px;"></div></div><div class="card card-padded"><h4 style="margin-bottom:14px;font-size:14px;font-weight:700;">Propostas por Status</h4><div id="chartStatus"></div></div></div><!-- Lista do mês atual --><div class="card card-padded"><h4 style="margin-bottom:14px;font-size:14px;font-weight:700;" id="propListTitle">Propostas deste Mês</h4><div id="propListMes"></div></div></div><!-- PONTOS / MOVIMENTAÇÕES --><div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-lg);margin-top:var(--space-lg);"><div class="card card-padded"><h3 style="font-family:var(--font-display);font-weight:800;margin-bottom:16px;">Movimentações de Pontos</h3><div id="txList"></div></div><div class="card card-padded"><h3 style="font-family:var(--font-display);font-weight:800;margin-bottom:16px;">Resumo de Pontos</h3><div id="profileStats"></div></div></div></section></main></div></div><!-- ════════ MODAL CARRINHO ════════ --><div class="modal-overlay" id="cartModal"><div class="modal" style="max-width:480px;"><div class="modal-header"><h3>Carrinho</h3><button class="modal-close" onclick="closeModal('cartModal')"></button></div><div class="modal-body"><div id="cartItems"></div><div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border);"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><span style="font-weight:700;">Total:</span><span class="pts-orange" style="font-family:var(--font-display);font-size:22px;font-weight:900;" id="cartTotal">0 pts</span></div><div id="cartBalanceInfo" style="font-size:12px;color:var(--color-text-muted);"></div></div></div><div class="modal-footer"><button class="btn btn-ghost" onclick="closeModal('cartModal')">Fechar</button><button class="btn btn-primary" id="checkoutBtn" onclick="checkout()">Finalizar Compra</button></div></div></div><!-- ════════ MODAL PRODUTO ════════ --><div class="modal-overlay product-detail-modal" id="productModal"><div class="modal" style="max-width:520px;"><div class="modal-header"><h3 id="prodModalName">–</h3><button class="modal-close" onclick="closeModal('productModal')"></button></div><div class="modal-body"><div class="product-detail-img" id="prodModalImg"></div><span class="badge badge-muted" id="prodModalCategory" style="margin-top:12px;display:inline-block;">–</span><p style="margin:10px 0;color:var(--color-text-secondary);font-size:14px;" id="prodModalDesc">–</p><div style="display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--color-border);"><div><div class="product-detail-price" id="prodModalPrice">0 pts</div><div style="font-size:12px;color:var(--color-text-muted);" id="prodModalStock">–</div></div><div style="display:flex;align-items:center;gap:10px;"><button class="btn btn-ghost btn-sm" onclick="changeModalQty(-1)">−</button><span id="modalQty" style="font-weight:800;font-size:16px;min-width:22px;text-align:center;">1</span><button class="btn btn-ghost btn-sm" onclick="changeModalQty(1)">+</button></div></div></div><div class="modal-footer"><button class="btn btn-ghost" onclick="closeModal('productModal')">Fechar</button><button class="btn btn-primary" id="addToCartBtn">Adicionar</button></div></div></div><!-- ════════ ALTERAR SENHA ════════ --><div class="modal-overlay" id="changePasswordModal"><div class="modal" style="max-width:420px;"><div class="modal-header"><h3>Alterar Senha</h3><button class="modal-close" onclick="closeModal('changePasswordModal')"></button></div><div class="modal-body"><div class="form-group"><label>Senha atual</label><input type="password" id="profilePwdCurrent" class="form-control" placeholder="Digite sua senha atual" autocomplete="current-password"/></div><div class="form-group"><label>Nova senha</label><input type="password" id="profilePwdNew" class="form-control" placeholder="Nova senha" autocomplete="new-password"/></div><div class="form-group"><label>Confirmar nova senha</label><input type="password" id="profilePwdConfirm" class="form-control" placeholder="Repita a nova senha" autocomplete="new-password"/></div></div><div class="modal-footer"><button type="button" class="btn btn-ghost" onclick="closeModal('changePasswordModal')">Cancelar</button><button type="button" class="btn btn-primary" onclick="saveProfilePassword()">Salvar</button></div></div></div><!-- ════════ PASSO 1: DADOS DO SAQUE (modal normal) ════════ --><div class="modal-overlay" id="withdrawalModal"><div class="modal" style="max-width:520px;"><div class="modal-header"><h3>Solicitar Saque via PIX</h3><button class="modal-close" onclick="closeModal('withdrawalModal')"></button></div><div class="modal-body"><div class="alert alert-info" style="margin-bottom:16px;background:var(--color-primary-light);color:var(--color-primary);border-color:var(--color-border);">Saldo disponível: <strong id="withdrawBalance">R$ 0,00</strong></div><div class="form-group"><label>Valor a Sacar (R$)</label><input type="number" id="withdrawAmount" min="0.01" step="0.01" placeholder="Ex: 100,00"/></div><div style="border:1.5px solid var(--color-border);border-radius:var(--radius-lg);padding:16px;margin-bottom:4px;"><p style="font-size:13px;font-weight:700;margin-bottom:12px;">Dados da Chave PIX</p><div class="form-group"><label>Tipo de Chave</label><div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;"><button type="button" class="pix-key-type-btn active" onclick="selectPixType('cpf',this)">CPF</button><button type="button" class="pix-key-type-btn" onclick="selectPixType('cnpj',this)">CNPJ</button><button type="button" class="pix-key-type-btn" onclick="selectPixType('email',this)">E-mail</button><button type="button" class="pix-key-type-btn" onclick="selectPixType('phone',this)">Celular</button><button type="button" class="pix-key-type-btn" onclick="selectPixType('random',this)">Aleatório</button></div><input type="hidden" id="pixKeyType" value="cpf"/></div><div class="form-group"><label id="pixKeyLabel">CPF</label><input type="text" id="pixKey" placeholder="000.000.000-00"/></div><div class="form-row"><div class="form-group"><label>Nome do Titular</label><input type="text" id="pixHolderName" placeholder="Nome completo"/></div><div class="form-group"><label>Banco (opcional)</label><input type="text" id="pixBankName" placeholder="Ex: Nubank"/></div></div></div></div><div class="modal-footer"><button class="btn btn-ghost" onclick="closeModal('withdrawalModal')">Cancelar</button><button class="btn btn-primary" onclick="goToTermStep()">Próximo: Ver Termo →</button></div></div></div><!-- ════════ PASSO 2: TERMO EM TELA CHEIA ════════ --><div class="term-fullscreen" id="termFullscreen"><div class="term-card"><div class="term-header"><h2> Termo de Ciência e Responsabilidade</h2><p>Leia todo o documento e role até o final para continuar</p></div><!-- Barra de progresso --><div class="term-progress-bar"><div class="term-progress-fill" id="termProgressFill"></div></div><!-- Área de scroll --><div class="term-scroll-area" id="termScrollArea"><div style="max-width:480px;margin:0 auto;"><!-- Resumo do saque --><div style="background:var(--color-primary-light);border:1.5px solid var(--color-primary);border-radius:var(--radius-lg);padding:16px;margin-bottom:20px;"><p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--color-primary);margin-bottom:6px;">Resumo da Solicitação</p><div style="display:flex;justify-content:space-between;align-items:center;"><div><div style="font-family:var(--font-display);font-size:28px;font-weight:900;color:var(--color-primary);" id="termAmount">0 pts</div><div style="font-size:12px;color:var(--color-text-muted);" id="termPixSummary">PIX —</div></div><div style="text-align:right;font-size:12px;color:var(--color-text-muted);" id="termHolder">–</div></div></div><h3 style="font-family:var(--font-display);font-size:16px;font-weight:800;margin-bottom:14px;">TERMO DE CIÊNCIA DE SAQUE — SOU + BLU</h3><p style="font-size:14px;line-height:1.8;color:var(--color-text-secondary);margin-bottom:16px;">
-          Eu, abaixo identificado, declaro que li, compreendi e concordo integralmente com as condições estabelecidas neste Termo de Ciência de Saque, emitido pela plataforma <strong>SOU + BLU</strong>.
-        </p><div style="border-left:3px solid var(--color-primary);padding-left:16px;margin-bottom:20px;"><p style="font-weight:700;margin-bottom:8px;color:var(--color-text);">Cláusula 1 — Do Processamento</p><p style="font-size:13px;line-height:1.8;color:var(--color-text-secondary);">O valor solicitado será processado pelo setor financeiro responsável no prazo de até <strong>5 (cinco) dias úteis</strong> a contar da data de confirmação desta solicitação, mediante análise e aprovação interna.</p></div><div style="border-left:3px solid var(--color-primary);padding-left:16px;margin-bottom:20px;"><p style="font-weight:700;margin-bottom:8px;color:var(--color-text);">Cláusula 2 — Da Transferência</p><p style="font-size:13px;line-height:1.8;color:var(--color-text-secondary);">O pagamento será realizado exclusivamente via <strong>transferência PIX</strong> para a chave informada nesta solicitação. É de responsabilidade exclusiva do solicitante garantir que os dados bancários estão corretos e atualizados.</p></div><div style="border-left:3px solid var(--color-danger);padding-left:16px;margin-bottom:20px;"><p style="font-weight:700;margin-bottom:8px;color:var(--color-danger);">Cláusula 3 — Da Irreversibilidade</p><p style="font-size:13px;line-height:1.8;color:var(--color-text-secondary);">O valor será <strong>debitado imediatamente</strong> do saldo disponível no momento da confirmação. Após a confirmação desta solicitação, a operação <strong>não poderá ser cancelada ou revertida</strong> por nenhuma das partes.</p></div><div style="border-left:3px solid var(--color-primary);padding-left:16px;margin-bottom:20px;"><p style="font-weight:700;margin-bottom:8px;color:var(--color-text);">Cláusula 4 — Da Responsabilidade</p><p style="font-size:13px;line-height:1.8;color:var(--color-text-secondary);">O solicitante é o único responsável pelos dados informados. Caso a chave PIX esteja incorreta, desatualizada ou inativa, e o pagamento não seja creditado na conta de destino, a plataforma SOU + BLU não se responsabilizará pela devolução dos valores.</p></div><div style="border-left:3px solid var(--color-primary);padding-left:16px;margin-bottom:20px;"><p style="font-weight:700;margin-bottom:8px;color:var(--color-text);">Cláusula 5 — Da Verificação de Identidade</p><p style="font-size:13px;line-height:1.8;color:var(--color-text-secondary);">Para garantir a segurança desta operação, será realizado um <strong>reconhecimento facial obrigatório</strong> no próximo passo. O saque só será processado se a face capturada corresponder ao rosto cadastrado no primeiro saque. <strong>Não é possível realizar o saque por outra pessoa.</strong></p></div><div style="border-left:3px solid var(--color-warning,#f59e0b);padding-left:16px;margin-bottom:20px;"><p style="font-weight:700;margin-bottom:8px;color:var(--color-text);">Cláusula 6 — Do Cadastro de Documento (Primeiro Saque)</p><p style="font-size:13px;line-height:1.8;color:var(--color-text-secondary);">No <strong>primeiro saque</strong>, é obrigatório o envio de documento de identidade (RG ou CNH — frente e verso) e o cadastro da biometria facial. A partir do segundo saque em diante, apenas a verificação facial será necessária. O documento não precisa ser reenviado.</p></div><div style="border-left:3px solid var(--color-primary);padding-left:16px;margin-bottom:20px;"><p style="font-weight:700;margin-bottom:8px;color:var(--color-text);">Cláusula 7 — Do Suporte</p><p style="font-size:13px;line-height:1.8;color:var(--color-text-secondary);">Em caso de dúvidas, divergências ou problemas relacionados ao saque, o solicitante deverá entrar em contato diretamente com o departamento de Recursos Humanos ou com o administrador responsável pela sua equipe.</p></div><div style="background:var(--color-surface-2);border-radius:var(--radius-md);padding:14px;margin-bottom:24px;font-size:12px;color:var(--color-text-muted);line-height:1.7;">
-          Este termo é gerado automaticamente pela plataforma SOU + BLU no momento da solicitação e tem validade legal como documento de ciência e aceite eletrônico por parte do solicitante.
-        </div></div><!-- /max-width --></div><!-- /term-scroll-area --><div class="term-footer"><!-- Hint de scroll --><div class="term-scroll-hint" id="termScrollHint"><span class="arrow">↓</span><span>Role até o final para habilitar a confirmação</span></div><!-- Checkbox — desabilitado até rolar --><label class="term-checkbox-row" id="termCheckLabel" onclick="termCheckClick()"><input type="checkbox" id="termFinalCheck" disabled onclick="event.stopPropagation()"/><span>Li, compreendi e concordo integralmente com todas as cláusulas deste Termo de Ciência de Saque.</span></label><div style="display:flex;gap:10px;"><button class="btn btn-ghost" style="flex:1;" onclick="closeTermFullscreen()">← Voltar</button><button class="btn btn-primary" style="flex:2;" id="termConfirmBtn" onclick="confirmTermStep()" disabled>
-          Confirmar e Verificar Identidade
-        </button></div></div></div></div><!-- ════════ PASSO 3: RECONHECIMENTO FACIAL ════════ --><div class="term-fullscreen" id="faceScreen"><div class="term-card" style="max-width:440px;"><div class="term-header"><h2>Verificação de Identidade</h2><p>Posicione seu rosto no centro da câmera</p></div><div style="padding:20px 24px 8px;" id="faceContent"><div class="face-step" id="faceStepScanning"><div class="face-video-wrap" id="faceVideoWrap"><video id="faceVideo" autoplay playsinline muted></video><div class="face-overlay"><div class="face-grid"></div><div class="face-scan-line"></div><div class="face-corner tl"></div><div class="face-corner tr"></div><div class="face-corner bl"></div><div class="face-corner br"></div></div></div><div class="face-status" id="faceStatus">Iniciando câmera...</div><div class="face-progress"><div class="face-progress-fill" id="faceProgressFill"></div></div><p style="font-size:12px;color:var(--color-text-muted);margin-top:10px;line-height:1.6;">
-          Mantenha seu rosto centralizado<br>e aguarde a verificação concluir
-        </p></div><div class="face-step" id="faceStepOk" style="display:none;padding:20px 0;"><div class="face-big-check" style="color:var(--color-success);font-size:44px;display:flex;align-items:center;justify-content:center;margin:12px 0;"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><div style="font-family:var(--font-display);font-size:22px;font-weight:900;color:var(--color-success);margin-bottom:6px;">Identidade Confirmada!</div><p style="font-size:14px;color:var(--color-text-muted);">Processando sua solicitação de saque...</p><div class="blu-spinner" style="margin:16px auto;"></div></div><div class="face-step" id="faceStepError" style="display:none;padding:10px 0;"><div style="font-size:44px;margin:8px 0;color:var(--color-danger);display:flex;align-items:center;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div><div style="font-family:var(--font-display);font-size:18px;font-weight:800;color:var(--color-danger);margin-bottom:8px;">Câmera não disponível</div><p style="font-size:13px;color:var(--color-text-muted);line-height:1.6;margin-bottom:16px;">
-          Não foi possível acessar a câmera do dispositivo.<br><br><strong>O reconhecimento facial é obrigatório para todos os saques</strong> — ele garante que somente você pode sacar seus pontos.<br><br>
-          Tente em um dispositivo com câmera disponível ou verifique as permissões do navegador.
-        </p><button class="btn btn-ghost btn-full" onclick="cancelFaceStep()">← Cancelar e voltar</button></div></div><div class="term-footer" style="padding-top:12px;"><button class="btn btn-ghost btn-sm" onclick="cancelFaceStep()">← Cancelar</button></div></div></div><!-- ════════ PASSO 1.5 (1º SAQUE): DOCUMENTOS ════════ --><div class="term-fullscreen" id="docScreen"><div class="term-card" style="max-width:520px;"><!-- Header fixo --><div class="term-header"><h2>Cadastro de Documento</h2><p>Necessário apenas no <strong>primeiro saque</strong>. Envie seu RG ou CNH.</p></div><!-- Área com scroll — igual ao termo --><div class="term-scroll-area" id="docContent"><div style="background:var(--color-primary-light);border:1.5px solid var(--color-primary);border-radius:var(--radius-lg);padding:14px 16px;margin-bottom:20px;display:flex;align-items:flex-start;gap:12px;"><span style="flex-shrink:0;color:var(--color-text-muted);display:flex;align-items:center;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span><div style="font-size:13px;line-height:1.6;"><strong>Por que isso é necessário?</strong><br>
-          Para garantir sua segurança verificamos sua identidade no primeiro saque. Seus documentos são armazenados com segurança e não serão compartilhados.
-        </div></div><!-- Tipo do documento --><div class="form-group"><label>Tipo de Documento</label><div style="display:flex;gap:10px;"><button type="button" id="docTypeRG" class="btn btn-primary" style="flex:1;" onclick="selectDocType('rg')">RG</button><button type="button" id="docTypeCNH" class="btn btn-ghost" style="flex:1;" onclick="selectDocType('cnh')">CNH</button></div><input type="hidden" id="docTypeValue" value="rg"/></div><!-- Frente --><div class="form-group"><label>Frente do Documento <span style="color:var(--color-danger);font-size:14px;">*</span></label><div id="docFrontPreviewWrap"
-          style="width:100%;height:160px;border:2px dashed var(--color-border);border-radius:var(--radius-md);
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <script src="../js/base-path.js">
+  </script>
+  <title>
+   SOU+BLU &middot; &Aacute;rea
+  </title>
+  <link href="../images/logo.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="../images/logo.png" rel="apple-touch-icon"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;family=Barlow:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="../css/variables.css" rel="stylesheet"/>
+  <link href="../css/global.css" rel="stylesheet"/>
+  <link href="../css/layout.css" rel="stylesheet"/>
+  <link href="../css/store.css" rel="stylesheet"/>
+  <link href="../css/withdrawal.css" rel="stylesheet"/>
+  <link href="../css/colors-orange.css" rel="stylesheet"/>
+  <script>
+   window.SOUBLU_CONFIG=window.SOUBLU_CONFIG||{};
+  </script>
+  <script defer="" src="../js/config.js">
+  </script>
+  <script defer="" src="../js/db.js">
+  </script>
+  <script defer="" src="../js/auth.js">
+  </script>
+  <script defer="" src="../js/proposals.js">
+  </script>
+  <script defer="" src="../js/tickets.js">
+  </script>
+ </head>
+ <body>
+  <div class="app-layout">
+   <nav class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+     <div class="sidebar-logo">
+      <img alt="SOU+BLU" data-soublu-logo="images/logo.png" height="32" src="../images/logo.png" width="32"/>
+     </div>
+     <span class="sidebar-title">
+      SOU
+      <span>
+       + BLU
+      </span>
+     </span>
+    </div>
+    <div class="sidebar-nav">
+     <span class="sidebar-section-label">
+      Principal
+     </span>
+     <button class="nav-item active" data-section="secStore">
+      <span class="nav-icon">
+       <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z">
+        </path>
+        <line x1="3" x2="21" y1="6" y2="6">
+        </line>
+        <path d="M16 10a4 4 0 0 1-8 0">
+        </path>
+       </svg>
+      </span>
+      <span class="nav-label">
+       Loja
+      </span>
+      <span class="nav-badge" id="cartBadge" style="display:none;">
+       0
+      </span>
+     </button>
+     <button class="nav-item" data-section="secOrders">
+      <span class="nav-icon">
+       <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+        <line x1="16.5" x2="7.5" y1="9.4" y2="4.21">
+        </line>
+        <polygon points="12 22.08 12 12 3 6.92 3 17.08 12 22.08">
+        </polygon>
+        <polygon points="12 22.08 12 12 21 6.92 21 17.08 12 22.08">
+        </polygon>
+        <polygon points="12 12 3 6.92 12 1.84 21 6.92 12 12">
+        </polygon>
+        <line x1="3.27" x2="12" y1="6.92" y2="12.01">
+        </line>
+        <line x1="20.73" x2="12" y1="6.92" y2="12.01">
+        </line>
+       </svg>
+      </span>
+      <span class="nav-label">
+       Meus Pedidos
+      </span>
+     </button>
+     <button class="nav-item" data-section="secProposals" id="navProposals" style="display:none;">
+      <span class="nav-icon">
+       <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
+        </path>
+        <polyline points="14 2 14 8 20 8">
+        </polyline>
+        <line x1="16" x2="8" y1="13" y2="13">
+        </line>
+        <line x1="16" x2="8" y1="17" y2="17">
+        </line>
+        <polyline points="10 9 9 9 8 9">
+        </polyline>
+       </svg>
+      </span>
+      <span class="nav-label">
+       Propostas
+      </span>
+     </button>
+     <button class="nav-item" data-section="secSimulacao" id="navSimulacao" style="display:none;">
+      <span class="nav-icon">
+       <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+        <line x1="19" x2="5" y1="5" y2="19">
+        </line>
+        <circle cx="6.5" cy="6.5" r="2.5">
+        </circle>
+        <circle cx="17.5" cy="17.5" r="2.5">
+        </circle>
+       </svg>
+      </span>
+      <span class="nav-label">
+       Simula&ccedil;&atilde;o
+      </span>
+     </button>
+     <button class="nav-item" data-section="secTickets" id="navTickets">
+      <span class="nav-icon">
+       <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z">
+        </path>
+        <line x1="7" x2="7.01" y1="7" y2="7">
+        </line>
+       </svg>
+      </span>
+      <span class="nav-label">
+       Chamados
+      </span>
+     </button>
+     <div class="sidebar-divider reports-section">
+     </div>
+     <span class="sidebar-section-label reports-section">
+      Relat&oacute;rios
+     </span>
+     <button class="nav-item" data-section="secMeetings">
+      <span class="nav-icon">
+       <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+        <rect height="18" rx="2" ry="2" width="18" x="3" y="4">
+        </rect>
+        <line x1="16" x2="16" y1="2" y2="6">
+        </line>
+        <line x1="8" x2="8" y1="2" y2="6">
+        </line>
+        <line x1="3" x2="21" y1="10" y2="10">
+        </line>
+       </svg>
+      </span>
+      <span class="nav-label">
+       Reuni&otilde;es
+      </span>
+      <span class="nav-badge meetings-badge" id="meetingsBadge" style="display:none;">
+       0
+      </span>
+     </button>
+     <button class="nav-item" data-section="secRanking">
+      <span class="nav-icon">
+       <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="8" r="7">
+        </circle>
+        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88">
+        </polyline>
+       </svg>
+      </span>
+      <span class="nav-label">
+       Ranking
+      </span>
+     </button>
+     <div class="sidebar-divider">
+     </div>
+     <button class="nav-item" data-section="secProfile">
+      <span class="nav-icon">
+       <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2">
+        </path>
+        <circle cx="12" cy="7" r="4">
+        </circle>
+       </svg>
+      </span>
+      <span class="nav-label">
+       Meu Perfil
+      </span>
+     </button>
+    </div>
+    <div class="sidebar-footer">
+     <button class="btn-logout" onclick="Auth.logout()">
+      <span class="nav-icon">
+       <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4">
+        </path>
+        <polyline points="16 17 21 12 16 7">
+        </polyline>
+        <line x1="21" x2="9" y1="12" y2="12">
+        </line>
+       </svg>
+      </span>
+      <span class="nav-label">
+       Sair
+      </span>
+     </button>
+     <div class="sidebar-user">
+      <div class="avatar avatar-sm" id="sidebarAvatar" style="background:var(--color-primary)">
+      </div>
+      <div class="sidebar-user-info">
+       <div class="sidebar-user-name" id="sidebarName">
+        &ndash;
+       </div>
+       <div class="sidebar-user-role" id="sidebarRole">
+        Funcion&aacute;rio
+       </div>
+      </div>
+     </div>
+     <button class="sidebar-toggle" id="sidebarToggle">
+      &rlarr;
+     </button>
+    </div>
+   </nav>
+   <div class="main-area" id="mainArea">
+    <header class="topbar">
+     <span class="topbar-title" id="topbarTitle">
+      Loja
+     </span>
+     <div class="topbar-actions">
+      <div class="search-bar topbar-search">
+       <span class="search-icon">
+        <svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="vertical-align: middle;" viewbox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
+         <circle cx="11" cy="11" r="8">
+         </circle>
+         <line x1="21" x2="16.65" y1="21" y2="16.65">
+         </line>
+        </svg>
+       </span>
+       <input id="storeSearch" oninput="filterProducts()" placeholder="Buscar produto..." type="text"/>
+      </div>
+      <button class="btn btn-outline btn-sm" onclick="openCart()">
+       <svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-right: 4px;vertical-align: middle;" viewbox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="9" cy="21" r="1">
+        </circle>
+        <circle cx="20" cy="21" r="1">
+        </circle>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
+        </path>
+       </svg>
+       Carrinho
+       <span id="cartCount">
+        (0)
+       </span>
+      </button>
+      <div style="font-size:14px;font-weight:700;color:var(--color-primary);display:flex;align-items:center;gap:4px;">
+       <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" style="color:var(--color-accent);" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10">
+        </circle>
+        <path d="M12 6v12M12 12H8m8 0h-4">
+        </path>
+       </svg>
+       <span id="topbarPoints">
+        0 pts
+       </span>
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="Auth.logout()">
+       <svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-right: 4px;vertical-align: middle;" viewbox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4">
+        </path>
+        <polyline points="16 17 21 12 16 7">
+        </polyline>
+        <line x1="21" x2="9" y1="12" y2="12">
+        </line>
+       </svg>
+       Sair
+      </button>
+     </div>
+    </header>
+    <main class="page-content">
+     <section class="section active" id="secStore">
+      <div class="coins-banner">
+       <div class="coins-banner-left">
+        <h3>
+         Seus pontos dispon&iacute;veis
+        </h3>
+        <div class="coins-amount" id="bannerPoints">
+         0 pts
+        </div>
+       </div>
+       <div class="coins-banner-right">
+        <svg fill="none" height="44" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" style="opacity: 0.8; color: #fff;" viewbox="0 0 24 24" width="44" xmlns="http://www.w3.org/2000/svg">
+         <circle cx="12" cy="12" r="10">
+         </circle>
+         <path d="M12 6v12M12 12H8m8 0h-4">
+         </path>
+        </svg>
+       </div>
+      </div>
+      <div class="filter-bar" id="categoryFilter">
+      </div>
+      <div class="product-grid" id="productGrid">
+      </div>
+     </section>
+     <section class="section" id="secOrders">
+      <div class="page-header">
+       <div class="page-header-text">
+        <h2>
+         Meus Pedidos
+        </h2>
+        <p>
+         Hist&oacute;rico de compras
+        </p>
+       </div>
+      </div>
+      <div id="ordersContainer">
+      </div>
+     </section>
+     <section class="section" id="secRanking">
+      <div class="page-header">
+       <div class="page-header-text">
+        <h2>
+         Ranking
+        </h2>
+        <p>
+         Classifica&ccedil;&atilde;o por desempenho &mdash; pontua&ccedil;&atilde;o n&atilde;o exibida (LGPD)
+        </p>
+       </div>
+      </div>
+      <div class="card card-padded">
+       <div class="ranking-list" id="rankingList">
+       </div>
+      </div>
+     </section>
+     <section class="section" id="secSimulacao">
+      <div class="page-header">
+       <div class="page-header-text">
+        <h2>
+         Simula&ccedil;&atilde;o de Troco
+        </h2>
+        <p>
+         Calcule saldo devedor, liberado e troco estimado pela tabela NEO / AKI
+        </p>
+       </div>
+      </div>
+      <div class="card card-padded sim-troco-card">
+       <div class="sim-troco-header">
+        <h2>
+         Simula&ccedil;&atilde;o de troco
+        </h2>
+        <p>
+         Parcela, tabela (fator) e valores estimados &mdash; apenas para consulta r&aacute;pida. A tabela oficial da proposta continua sendo definida pelo Financeiro.
+        </p>
+       </div>
+       <div class="sim-troco-inputs">
+        <div class="form-group">
+         <label for="simParcela">
+          Valor da parcela (R$)
+         </label>
+         <input class="form-control" id="simParcela" min="0" placeholder="0,00" step="0.01" type="number" value="800"/>
+        </div>
+        <div class="form-group">
+         <label for="simTabela">
+          Tabela
+         </label>
+         <select class="form-control" id="simTabela">
+         </select>
+         <div id="simTabelaHint">
+         </div>
+        </div>
+       </div>
+       <div class="sim-troco-rows">
+        <div class="sim-troco-row">
+         <span>
+          Saldo devedor
+         </span>
+         <strong id="simSaldoDevedor">
+          &mdash;
+         </strong>
+        </div>
+        <div class="sim-troco-row">
+         <span>
+          Saldo liberado
+         </span>
+         <strong id="simSaldoLiberado">
+          &mdash;
+         </strong>
+        </div>
+       </div>
+       <div class="sim-troco-margem">
+        <div class="form-group">
+         <label for="simMargemAdicional">
+          Margem adicional (R$)
+         </label>
+         <input class="form-control" id="simMargemAdicional" min="0" placeholder="0,00" step="0.01" type="number" value="0"/>
+        </div>
+        <div class="sim-troco-row sim-troco-row--full sim-troco-row--hidden">
+         <span>
+          Margem liberada (margem &divide; fator da tabela)
+         </span>
+         <strong id="simMargemLiberada">
+          &mdash;
+         </strong>
+        </div>
+       </div>
+       <div class="sim-troco-result">
+        <div class="sim-troco-result-label">
+         Troco estimado
+        </div>
+        <div class="sim-troco-result-value" id="simTrocoValor">
+         &mdash;
+        </div>
+       </div>
+       <p class="sim-troco-formulas">
+        <code>
+         Saldo devedor = parcela &times; 22
+        </code>
+        <br/>
+        <code>
+         Saldo liberado = parcela &divide; fator da tabela
+        </code>
+        <br/>
+        <code>
+         Margem liberada = margem adicional &divide; fator da tabela
+        </code>
+        <br/>
+        <code>
+         Troco = liberado &minus; devedor + margem liberada
+        </code>
+       </p>
+      </div>
+     </section>
+     <section class="section" id="secProposals">
+      <div class="page-header">
+       <div class="page-header-text">
+        <h2>
+         Propostas
+        </h2>
+        <p>
+         Cadastro e acompanhamento de propostas
+        </p>
+       </div>
+       <div style="display:flex; gap: 8px;">
+        <button class="btn btn-primary" onclick="Clients.openModal()">
+         + Novo Cliente
+        </button>
+        <button class="btn btn-primary" onclick="Proposals.openModal()">
+         + Nova Proposta
+        </button>
+       </div>
+      </div>
+      <div class="card card-padded" id="propFormContainer" style="margin-bottom: 20px; display:none;">
+       <div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+        <h3 style="margin: 0;">
+         Cadastrar Proposta
+        </h3>
+        <button class="btn btn-ghost btn-sm" onclick="document.getElementById('propFormContainer').style.display='none'">
+         Fechar
+        </button>
+       </div>
+       <div class="form-row" style="margin-bottom: 20px;">
+        <div class="form-group" style="flex:1;">
+         <input class="form-control" id="propCpf" placeholder="Digite o CPF do cliente j&aacute; cadastrado" type="text"/>
+        </div>
+        <button class="btn btn-primary" onclick="Proposals.searchCpf()" style="height: 44px;">
+         Buscar Cliente
+        </button>
+       </div>
+       <div id="propFormArea" style="display:none; margin-top: 20px;">
+        <div style="background: var(--color-surface-2); padding: 15px; border-radius: var(--radius-md); margin-bottom: 20px;">
+         <h4 style="margin-top: 0; margin-bottom: 10px;">
+          Dados do Cliente
+         </h4>
+         <div id="propClientSummary" style="font-size: 14px;">
+         </div>
+         <input id="propClientName" type="hidden"/>
+        </div>
+        <!-- USO VENDEDOR -->
+        <h4 style="margin-top: 20px; margin-bottom: 12px; color: var(--color-primary);">
+         Dados da Proposta &mdash; Uso Vendedor
+        </h4>
+        <div class="form-row" id="propNumeroValorRow" style="margin-top:12px;">
+         <div class="form-group">
+          <label id="propNumeroLabel">
+           N&ordm; Proposta
+          </label>
+          <input class="form-control" id="propNumero" placeholder="N&uacute;mero da proposta" type="text"/>
+         </div>
+         <div class="form-group">
+          <label id="propValorLabel">
+           Valor Proposta (R$)
+          </label>
+          <input class="form-control" id="propValor" min="0" placeholder="0,00" step="0.01" type="number"/>
+         </div>
+        </div>
+        <input id="propTabela" type="hidden" value="NORMAL"/>
+        <input id="propDesconto" type="hidden" value="0"/>
+        <input id="propValorFinalDisplay" type="hidden" value=""/>
+        <div class="form-row" style="margin-top:12px;">
+         <div class="form-group">
+          <label>
+           Matr&iacute;cula
+          </label>
+          <input class="form-control" id="propMatricula" placeholder="Matr&iacute;cula do cliente" type="text"/>
+         </div>
+         <div class="form-group">
+          <label>
+           Senha Contracheque
+          </label>
+          <input class="form-control" id="propSenhaContracheque" placeholder="Senha do contracheque" type="text"/>
+         </div>
+         <div class="form-group">
+          <label>
+           Senha Consigna&ccedil;&atilde;o
+          </label>
+          <input class="form-control" id="propSenhaConsignacao" placeholder="Senha da consigna&ccedil;&atilde;o" type="text"/>
+         </div>
+        </div>
+        <div class="form-row" style="margin-top: 12px;">
+         <div class="form-group">
+          <label>
+           Produto
+          </label>
+          <select class="form-control" id="propProduct">
+           <option value="">
+            Selecione o Produto
+           </option>
+           <option value="NOVO">
+            NOVO
+           </option>
+           <option value="COMPRA DE D&Iacute;VIDA">
+            COMPRA DE D&Iacute;VIDA
+           </option>
+           <option value="CART&Atilde;O">
+            CART&Atilde;O
+           </option>
+          </select>
+         </div>
+         <div class="form-group">
+          <label>
+           Conv&ecirc;nio
+          </label>
+          <select class="form-control" id="propConvenio" onchange="Proposals.updateEntidades()">
+           <option value="">
+            Selecione o Conv&ecirc;nio
+           </option>
+           <option value="FEDERAL">
+            FEDERAL
+           </option>
+           <option value="ESTADUAL">
+            ESTADUAL
+           </option>
+           <option value="MUNICIPAL">
+            MUNICIPAL
+           </option>
+          </select>
+         </div>
+         <div class="form-group">
+          <label>
+           Entidade / &Oacute;rg&atilde;o
+          </label>
+          <select class="form-control" id="propEntidade">
+           <option value="">
+            Selecione a Entidade
+           </option>
+          </select>
+         </div>
+        </div>
+        <div class="form-row" id="propEtapaVendedorRow" style="margin-top:12px;">
+         <div class="form-group" style="flex:1;">
+          <label>
+           Situa&ccedil;&atilde;o da Proposta
+          </label>
+          <select class="form-control" id="propEtapaVendedor">
+           <option value="">
+            Selecione
+           </option>
+           <option value="AG. BOLETO">
+            Aguardando boleto
+           </option>
+           <option value="Digita&ccedil;&atilde;o">
+            Digita&ccedil;&atilde;o
+           </option>
+          </select>
+         </div>
+        </div>
+        <div class="form-row" style="margin-top:12px;">
+         <div class="form-group" style="flex:1;">
+          <label>
+           N&uacute;mero de Protocolo
+          </label>
+          <input class="form-control" id="propProtocolo" placeholder="N&uacute;mero de protocolo" type="text"/>
+         </div>
+        </div>
+        <div class="form-group" style="margin-top:12px;">
+         <label>
+          Observa&ccedil;&otilde;es do Vendedor
+         </label>
+         <textarea class="form-control" id="propObs" placeholder="Observa&ccedil;&otilde;es gerais sobre a proposta..." rows="3"></textarea>
+        </div>
+        <!-- Anexos — pastas pré-definidas + opção de nova pasta -->
+        <div id="propAnexosSection">
+         <h4 id="propAnexosTitle" style="margin-top:24px;margin-bottom:14px;color:var(--color-primary);">
+          Documentos (opcional)
+         </h4>
+         <div id="propAnexosFolders">
+         </div>
+         <button class="btn btn-outline btn-sm" id="propAddCustomFolderBtn" onclick="Proposals.addCustomFolder(this)" style="margin-top:10px;" type="button">
+          + Nova pasta
+         </button>
+        </div>
+        <!-- campos ocultos para compatibilidade legado -->
+        <input id="propAnexos" type="hidden"/>
+        <input id="filePaystub" type="hidden"/>
+        <input id="fileIdentidade" type="hidden"/>
+        <input id="fileBoleto1" type="hidden"/>
+        <input id="fileBoleto2" type="hidden"/>
+        <input id="fileBoleto3" type="hidden"/>
+        <input id="fileBoleto4" type="hidden"/>
+        <input id="fileBoleto5" type="hidden"/>
+        <input id="fileExtrato1" type="hidden"/>
+        <input id="fileExtrato2" type="hidden"/>
+        <button class="btn btn-primary" onclick="Proposals.submit()" style="margin-top:4px;width:100%;">
+         Enviar Proposta
+        </button>
+       </div>
+      </div>
+      <div class="card card-padded">
+       <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:15px;">
+        <h3 style="margin:0;">
+         Minhas Propostas
+        </h3>
+       </div>
+       <div id="proposalsList">
+       </div>
+       <div id="employeeProposalsPagination">
+       </div>
+      </div>
+     </section>
+     <section class="section" id="secTickets">
+      <div class="page-header">
+       <div class="page-header-text">
+        <h2>
+         Chamados
+        </h2>
+        <p>
+         Abra chamados para outros departamentos
+        </p>
+       </div>
+      </div>
+      <div class="card card-padded" style="margin-bottom: 20px;">
+       <h3 style="margin-bottom: 15px;">
+        Abrir Novo Chamado
+       </h3>
+       <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+        <select class="form-control" id="ticketDept" onchange="Tickets.updateSubjects()">
+         <option value="">
+          Selecione o Departamento
+         </option>
+        </select>
+        <select class="form-control" id="ticketSubject">
+         <option value="">
+          Selecione o Assunto
+         </option>
+        </select>
+       </div>
+       <textarea class="form-control" id="ticketDesc" placeholder="Descreva o problema/solicita&ccedil;&atilde;o..." style="margin-top:15px;"></textarea>
+       <div style="margin-top:15px;">
+        <label>
+         Anexo (Opcional)
+        </label>
+        <input accept="image/*,.pdf" class="form-control" id="ticketFile" type="file"/>
+       </div>
+       <button class="btn btn-primary" onclick="Tickets.submit()" style="margin-top: 20px;">
+        Abrir Chamado
+       </button>
+      </div>
+      <div class="card card-padded">
+       <h3 style="margin-bottom: 15px;">
+        Meus Chamados Abertos
+       </h3>
+       <div id="ticketsList">
+       </div>
+      </div>
+     </section>
+     <section class="section" id="secMeetings">
+      <div class="page-header">
+       <div class="page-header-text">
+        <h2>
+         Reuni&otilde;es
+        </h2>
+        <p>
+         Convoca&ccedil;&otilde;es da gest&atilde;o &mdash; registre sua ci&ecirc;ncia do termo quando solicitado
+        </p>
+       </div>
+      </div>
+      <div id="meetingsAdminRoot">
+      </div>
+      <div id="meetingsEmployeeRoot">
+       <div class="text-muted text-center" style="padding:24px;">
+        Carregando&hellip;
+       </div>
+      </div>
+     </section>
+     <section class="section" id="secProfile">
+      <div class="profile-header" id="profileHeader">
+      </div>
+      <div id="ptsToggleBlock" style="display:none;">
+      </div>
+      <!-- DASHBOARD DE PROPOSTAS -->
+      <div id="propDashboard" style="display:none; margin-top: var(--space-lg);">
+       <h3 style="font-family:var(--font-display);font-weight:800;margin-bottom:16px;">
+        Dashboard de Propostas
+       </h3>
+       <!-- KPIs -->
+       <div id="propKpis" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;">
+       </div>
+       <!-- Gráficos -->
+       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+        <div class="card card-padded">
+         <h4 style="margin-bottom:14px;font-size:14px;font-weight:700;">
+          Propostas por M&ecirc;s
+         </h4>
+         <div id="chartMes" style="height:160px;display:flex;align-items:flex-end;gap:6px;">
+         </div>
+        </div>
+        <div class="card card-padded">
+         <h4 style="margin-bottom:14px;font-size:14px;font-weight:700;">
+          Propostas por Status
+         </h4>
+         <div id="chartStatus">
+         </div>
+        </div>
+       </div>
+       <!-- Lista do mês atual -->
+       <div class="card card-padded">
+        <h4 id="propListTitle" style="margin-bottom:14px;font-size:14px;font-weight:700;">
+         Propostas deste M&ecirc;s
+        </h4>
+        <div id="propListMes">
+        </div>
+       </div>
+      </div>
+      <!-- PONTOS / MOVIMENTAÇÕES -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-lg);margin-top:var(--space-lg);">
+       <div class="card card-padded">
+        <h3 style="font-family:var(--font-display);font-weight:800;margin-bottom:16px;">
+         Movimenta&ccedil;&otilde;es de Pontos
+        </h3>
+        <div id="txList">
+        </div>
+       </div>
+       <div class="card card-padded">
+        <h3 style="font-family:var(--font-display);font-weight:800;margin-bottom:16px;">
+         Resumo de Pontos
+        </h3>
+        <div id="profileStats">
+        </div>
+       </div>
+      </div>
+     </section>
+    </main>
+   </div>
+  </div>
+  <!-- ════════ MODAL CARRINHO ════════ -->
+  <div class="modal-overlay" id="cartModal">
+   <div class="modal" style="max-width:480px;">
+    <div class="modal-header">
+     <h3>
+      Carrinho
+     </h3>
+     <button class="modal-close" onclick="closeModal('cartModal')">
+     </button>
+    </div>
+    <div class="modal-body">
+     <div id="cartItems">
+     </div>
+     <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border);">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+       <span style="font-weight:700;">
+        Total:
+       </span>
+       <span class="pts-orange" id="cartTotal" style="font-family:var(--font-display);font-size:22px;font-weight:900;">
+        0 pts
+       </span>
+      </div>
+      <div id="cartBalanceInfo" style="font-size:12px;color:var(--color-text-muted);">
+      </div>
+     </div>
+    </div>
+    <div class="modal-footer">
+     <button class="btn btn-ghost" onclick="closeModal('cartModal')">
+      Fechar
+     </button>
+     <button class="btn btn-primary" id="checkoutBtn" onclick="checkout()">
+      Finalizar Compra
+     </button>
+    </div>
+   </div>
+  </div>
+  <!-- ════════ MODAL PRODUTO ════════ -->
+  <div class="modal-overlay product-detail-modal" id="productModal">
+   <div class="modal" style="max-width:520px;">
+    <div class="modal-header">
+     <h3 id="prodModalName">
+      &ndash;
+     </h3>
+     <button class="modal-close" onclick="closeModal('productModal')">
+     </button>
+    </div>
+    <div class="modal-body">
+     <div class="product-detail-img" id="prodModalImg">
+     </div>
+     <span class="badge badge-muted" id="prodModalCategory" style="margin-top:12px;display:inline-block;">
+      &ndash;
+     </span>
+     <p id="prodModalDesc" style="margin:10px 0;color:var(--color-text-secondary);font-size:14px;">
+      &ndash;
+     </p>
+     <div style="display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--color-border);">
+      <div>
+       <div class="product-detail-price" id="prodModalPrice">
+        0 pts
+       </div>
+       <div id="prodModalStock" style="font-size:12px;color:var(--color-text-muted);">
+        &ndash;
+       </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+       <button class="btn btn-ghost btn-sm" onclick="changeModalQty(-1)">
+        &minus;
+       </button>
+       <span id="modalQty" style="font-weight:800;font-size:16px;min-width:22px;text-align:center;">
+        1
+       </span>
+       <button class="btn btn-ghost btn-sm" onclick="changeModalQty(1)">
+        +
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="modal-footer">
+     <button class="btn btn-ghost" onclick="closeModal('productModal')">
+      Fechar
+     </button>
+     <button class="btn btn-primary" id="addToCartBtn">
+      Adicionar
+     </button>
+    </div>
+   </div>
+  </div>
+  <!-- ════════ ALTERAR SENHA ════════ -->
+  <div class="modal-overlay" id="changePasswordModal">
+   <div class="modal" style="max-width:420px;">
+    <div class="modal-header">
+     <h3>
+      Alterar Senha
+     </h3>
+     <button class="modal-close" onclick="closeModal('changePasswordModal')">
+     </button>
+    </div>
+    <div class="modal-body">
+     <div class="form-group">
+      <label>
+       Senha atual
+      </label>
+      <input autocomplete="current-password" class="form-control" id="profilePwdCurrent" placeholder="Digite sua senha atual" type="password"/>
+     </div>
+     <div class="form-group">
+      <label>
+       Nova senha
+      </label>
+      <input autocomplete="new-password" class="form-control" id="profilePwdNew" placeholder="Nova senha" type="password"/>
+     </div>
+     <div class="form-group">
+      <label>
+       Confirmar nova senha
+      </label>
+      <input autocomplete="new-password" class="form-control" id="profilePwdConfirm" placeholder="Repita a nova senha" type="password"/>
+     </div>
+    </div>
+    <div class="modal-footer">
+     <button class="btn btn-ghost" onclick="closeModal('changePasswordModal')" type="button">
+      Cancelar
+     </button>
+     <button class="btn btn-primary" onclick="saveProfilePassword()" type="button">
+      Salvar
+     </button>
+    </div>
+   </div>
+  </div>
+  <!-- ════════ PASSO 1: DADOS DO SAQUE (modal normal) ════════ -->
+  <div class="modal-overlay" id="withdrawalModal">
+   <div class="modal" style="max-width:520px;">
+    <div class="modal-header">
+     <h3>
+      Solicitar Saque via PIX
+     </h3>
+     <button class="modal-close" onclick="closeModal('withdrawalModal')">
+     </button>
+    </div>
+    <div class="modal-body">
+     <div class="alert alert-info" style="margin-bottom:16px;background:var(--color-primary-light);color:var(--color-primary);border-color:var(--color-border);">
+      Saldo dispon&iacute;vel:
+      <strong id="withdrawBalance">
+       R$ 0,00
+      </strong>
+     </div>
+     <div class="form-group">
+      <label>
+       Valor a Sacar (R$)
+      </label>
+      <input id="withdrawAmount" min="0.01" placeholder="Ex: 100,00" step="0.01" type="number"/>
+     </div>
+     <div style="border:1.5px solid var(--color-border);border-radius:var(--radius-lg);padding:16px;margin-bottom:4px;">
+      <p style="font-size:13px;font-weight:700;margin-bottom:12px;">
+       Dados da Chave PIX
+      </p>
+      <div class="form-group">
+       <label>
+        Tipo de Chave
+       </label>
+       <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;">
+        <button class="pix-key-type-btn active" onclick="selectPixType('cpf',this)" type="button">
+         CPF
+        </button>
+        <button class="pix-key-type-btn" onclick="selectPixType('cnpj',this)" type="button">
+         CNPJ
+        </button>
+        <button class="pix-key-type-btn" onclick="selectPixType('email',this)" type="button">
+         E-mail
+        </button>
+        <button class="pix-key-type-btn" onclick="selectPixType('phone',this)" type="button">
+         Celular
+        </button>
+        <button class="pix-key-type-btn" onclick="selectPixType('random',this)" type="button">
+         Aleat&oacute;rio
+        </button>
+       </div>
+       <input id="pixKeyType" type="hidden" value="cpf"/>
+      </div>
+      <div class="form-group">
+       <label id="pixKeyLabel">
+        CPF
+       </label>
+       <input id="pixKey" placeholder="000.000.000-00" type="text"/>
+      </div>
+      <div class="form-row">
+       <div class="form-group">
+        <label>
+         Nome do Titular
+        </label>
+        <input id="pixHolderName" placeholder="Nome completo" type="text"/>
+       </div>
+       <div class="form-group">
+        <label>
+         Banco (opcional)
+        </label>
+        <input id="pixBankName" placeholder="Ex: Nubank" type="text"/>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="modal-footer">
+     <button class="btn btn-ghost" onclick="closeModal('withdrawalModal')">
+      Cancelar
+     </button>
+     <button class="btn btn-primary" onclick="goToTermStep()">
+      Pr&oacute;ximo: Ver Termo &rarr;
+     </button>
+    </div>
+   </div>
+  </div>
+  <!-- ════════ PASSO 2: TERMO EM TELA CHEIA ════════ -->
+  <div class="term-fullscreen" id="termFullscreen">
+   <div class="term-card">
+    <div class="term-header">
+     <h2>
+      Termo de Ci&ecirc;ncia e Responsabilidade
+     </h2>
+     <p>
+      Leia todo o documento e role at&eacute; o final para continuar
+     </p>
+    </div>
+    <!-- Barra de progresso -->
+    <div class="term-progress-bar">
+     <div class="term-progress-fill" id="termProgressFill">
+     </div>
+    </div>
+    <!-- Área de scroll -->
+    <div class="term-scroll-area" id="termScrollArea">
+     <div style="max-width:480px;margin:0 auto;">
+      <!-- Resumo do saque -->
+      <div style="background:var(--color-primary-light);border:1.5px solid var(--color-primary);border-radius:var(--radius-lg);padding:16px;margin-bottom:20px;">
+       <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--color-primary);margin-bottom:6px;">
+        Resumo da Solicita&ccedil;&atilde;o
+       </p>
+       <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div>
+         <div id="termAmount" style="font-family:var(--font-display);font-size:28px;font-weight:900;color:var(--color-primary);">
+          0 pts
+         </div>
+         <div id="termPixSummary" style="font-size:12px;color:var(--color-text-muted);">
+          PIX &mdash;
+         </div>
+        </div>
+        <div id="termHolder" style="text-align:right;font-size:12px;color:var(--color-text-muted);">
+         &ndash;
+        </div>
+       </div>
+      </div>
+      <h3 style="font-family:var(--font-display);font-size:16px;font-weight:800;margin-bottom:14px;">
+       TERMO DE CI&Ecirc;NCIA DE SAQUE &mdash; SOU + BLU
+      </h3>
+      <p style="font-size:14px;line-height:1.8;color:var(--color-text-secondary);margin-bottom:16px;">
+       Eu, abaixo identificado, declaro que li, compreendi e concordo integralmente com as condi&ccedil;&otilde;es estabelecidas neste Termo de Ci&ecirc;ncia de Saque, emitido pela plataforma
+       <strong>
+        SOU + BLU
+       </strong>
+       .
+      </p>
+      <div style="border-left:3px solid var(--color-primary);padding-left:16px;margin-bottom:20px;">
+       <p style="font-weight:700;margin-bottom:8px;color:var(--color-text);">
+        Cl&aacute;usula 1 &mdash; Do Processamento
+       </p>
+       <p style="font-size:13px;line-height:1.8;color:var(--color-text-secondary);">
+        O valor solicitado ser&aacute; processado pelo setor financeiro respons&aacute;vel no prazo de at&eacute;
+        <strong>
+         5 (cinco) dias &uacute;teis
+        </strong>
+        a contar da data de confirma&ccedil;&atilde;o desta solicita&ccedil;&atilde;o, mediante an&aacute;lise e aprova&ccedil;&atilde;o interna.
+       </p>
+      </div>
+      <div style="border-left:3px solid var(--color-primary);padding-left:16px;margin-bottom:20px;">
+       <p style="font-weight:700;margin-bottom:8px;color:var(--color-text);">
+        Cl&aacute;usula 2 &mdash; Da Transfer&ecirc;ncia
+       </p>
+       <p style="font-size:13px;line-height:1.8;color:var(--color-text-secondary);">
+        O pagamento ser&aacute; realizado exclusivamente via
+        <strong>
+         transfer&ecirc;ncia PIX
+        </strong>
+        para a chave informada nesta solicita&ccedil;&atilde;o. &Eacute; de responsabilidade exclusiva do solicitante garantir que os dados banc&aacute;rios est&atilde;o corretos e atualizados.
+       </p>
+      </div>
+      <div style="border-left:3px solid var(--color-danger);padding-left:16px;margin-bottom:20px;">
+       <p style="font-weight:700;margin-bottom:8px;color:var(--color-danger);">
+        Cl&aacute;usula 3 &mdash; Da Irreversibilidade
+       </p>
+       <p style="font-size:13px;line-height:1.8;color:var(--color-text-secondary);">
+        O valor ser&aacute;
+        <strong>
+         debitado imediatamente
+        </strong>
+        do saldo dispon&iacute;vel no momento da confirma&ccedil;&atilde;o. Ap&oacute;s a confirma&ccedil;&atilde;o desta solicita&ccedil;&atilde;o, a opera&ccedil;&atilde;o
+        <strong>
+         n&atilde;o poder&aacute; ser cancelada ou revertida
+        </strong>
+        por nenhuma das partes.
+       </p>
+      </div>
+      <div style="border-left:3px solid var(--color-primary);padding-left:16px;margin-bottom:20px;">
+       <p style="font-weight:700;margin-bottom:8px;color:var(--color-text);">
+        Cl&aacute;usula 4 &mdash; Da Responsabilidade
+       </p>
+       <p style="font-size:13px;line-height:1.8;color:var(--color-text-secondary);">
+        O solicitante &eacute; o &uacute;nico respons&aacute;vel pelos dados informados. Caso a chave PIX esteja incorreta, desatualizada ou inativa, e o pagamento n&atilde;o seja creditado na conta de destino, a plataforma SOU + BLU n&atilde;o se responsabilizar&aacute; pela devolu&ccedil;&atilde;o dos valores.
+       </p>
+      </div>
+      <div style="border-left:3px solid var(--color-primary);padding-left:16px;margin-bottom:20px;">
+       <p style="font-weight:700;margin-bottom:8px;color:var(--color-text);">
+        Cl&aacute;usula 5 &mdash; Da Verifica&ccedil;&atilde;o de Identidade
+       </p>
+       <p style="font-size:13px;line-height:1.8;color:var(--color-text-secondary);">
+        Para garantir a seguran&ccedil;a desta opera&ccedil;&atilde;o, ser&aacute; realizado um
+        <strong>
+         reconhecimento facial obrigat&oacute;rio
+        </strong>
+        no pr&oacute;ximo passo. O saque s&oacute; ser&aacute; processado se a face capturada corresponder ao rosto cadastrado no primeiro saque.
+        <strong>
+         N&atilde;o &eacute; poss&iacute;vel realizar o saque por outra pessoa.
+        </strong>
+       </p>
+      </div>
+      <div style="border-left:3px solid var(--color-warning,#f59e0b);padding-left:16px;margin-bottom:20px;">
+       <p style="font-weight:700;margin-bottom:8px;color:var(--color-text);">
+        Cl&aacute;usula 6 &mdash; Do Cadastro de Documento (Primeiro Saque)
+       </p>
+       <p style="font-size:13px;line-height:1.8;color:var(--color-text-secondary);">
+        No
+        <strong>
+         primeiro saque
+        </strong>
+        , &eacute; obrigat&oacute;rio o envio de documento de identidade (RG ou CNH &mdash; frente e verso) e o cadastro da biometria facial. A partir do segundo saque em diante, apenas a verifica&ccedil;&atilde;o facial ser&aacute; necess&aacute;ria. O documento n&atilde;o precisa ser reenviado.
+       </p>
+      </div>
+      <div style="border-left:3px solid var(--color-primary);padding-left:16px;margin-bottom:20px;">
+       <p style="font-weight:700;margin-bottom:8px;color:var(--color-text);">
+        Cl&aacute;usula 7 &mdash; Do Suporte
+       </p>
+       <p style="font-size:13px;line-height:1.8;color:var(--color-text-secondary);">
+        Em caso de d&uacute;vidas, diverg&ecirc;ncias ou problemas relacionados ao saque, o solicitante dever&aacute; entrar em contato diretamente com o departamento de Recursos Humanos ou com o administrador respons&aacute;vel pela sua equipe.
+       </p>
+      </div>
+      <div style="background:var(--color-surface-2);border-radius:var(--radius-md);padding:14px;margin-bottom:24px;font-size:12px;color:var(--color-text-muted);line-height:1.7;">
+       Este termo &eacute; gerado automaticamente pela plataforma SOU + BLU no momento da solicita&ccedil;&atilde;o e tem validade legal como documento de ci&ecirc;ncia e aceite eletr&ocirc;nico por parte do solicitante.
+      </div>
+     </div>
+     <!-- /max-width -->
+    </div>
+    <!-- /term-scroll-area -->
+    <div class="term-footer">
+     <!-- Hint de scroll -->
+     <div class="term-scroll-hint" id="termScrollHint">
+      <span class="arrow">
+       &darr;
+      </span>
+      <span>
+       Role at&eacute; o final para habilitar a confirma&ccedil;&atilde;o
+      </span>
+     </div>
+     <!-- Checkbox — desabilitado até rolar -->
+     <label class="term-checkbox-row" id="termCheckLabel" onclick="termCheckClick()">
+      <input disabled="" id="termFinalCheck" onclick="event.stopPropagation()" type="checkbox">
+       <span>
+        Li, compreendi e concordo integralmente com todas as cl&aacute;usulas deste Termo de Ci&ecirc;ncia de Saque.
+       </span>
+      </input>
+     </label>
+     <div style="display:flex;gap:10px;">
+      <button class="btn btn-ghost" onclick="closeTermFullscreen()" style="flex:1;">
+       &larr; Voltar
+      </button>
+      <button class="btn btn-primary" disabled="" id="termConfirmBtn" onclick="confirmTermStep()" style="flex:2;">
+       Confirmar e Verificar Identidade
+      </button>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- ════════ PASSO 3: RECONHECIMENTO FACIAL ════════ -->
+  <div class="term-fullscreen" id="faceScreen">
+   <div class="term-card" style="max-width:440px;">
+    <div class="term-header">
+     <h2>
+      Verifica&ccedil;&atilde;o de Identidade
+     </h2>
+     <p>
+      Posicione seu rosto no centro da c&acirc;mera
+     </p>
+    </div>
+    <div id="faceContent" style="padding:20px 24px 8px;">
+     <div class="face-step" id="faceStepScanning">
+      <div class="face-video-wrap" id="faceVideoWrap">
+       <video autoplay="" id="faceVideo" muted="" playsinline="">
+       </video>
+       <div class="face-overlay">
+        <div class="face-grid">
+        </div>
+        <div class="face-scan-line">
+        </div>
+        <div class="face-corner tl">
+        </div>
+        <div class="face-corner tr">
+        </div>
+        <div class="face-corner bl">
+        </div>
+        <div class="face-corner br">
+        </div>
+       </div>
+      </div>
+      <div class="face-status" id="faceStatus">
+       Iniciando c&acirc;mera...
+      </div>
+      <div class="face-progress">
+       <div class="face-progress-fill" id="faceProgressFill">
+       </div>
+      </div>
+      <p style="font-size:12px;color:var(--color-text-muted);margin-top:10px;line-height:1.6;">
+       Mantenha seu rosto centralizado
+       <br/>
+       e aguarde a verifica&ccedil;&atilde;o concluir
+      </p>
+     </div>
+     <div class="face-step" id="faceStepOk" style="display:none;padding:20px 0;">
+      <div class="face-big-check" style="color:var(--color-success);font-size:44px;display:flex;align-items:center;justify-content:center;margin:12px 0;">
+       <svg fill="none" height="44" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="44" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14">
+        </path>
+        <polyline points="22 4 12 14.01 9 11.01">
+        </polyline>
+       </svg>
+      </div>
+      <div style="font-family:var(--font-display);font-size:22px;font-weight:900;color:var(--color-success);margin-bottom:6px;">
+       Identidade Confirmada!
+      </div>
+      <p style="font-size:14px;color:var(--color-text-muted);">
+       Processando sua solicita&ccedil;&atilde;o de saque...
+      </p>
+      <div class="blu-spinner" style="margin:16px auto;">
+      </div>
+     </div>
+     <div class="face-step" id="faceStepError" style="display:none;padding:10px 0;">
+      <div style="font-size:44px;margin:8px 0;color:var(--color-danger);display:flex;align-items:center;justify-content:center;">
+       <svg fill="none" height="44" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="44" xmlns="http://www.w3.org/2000/svg">
+        <rect height="20" rx="2" ry="2" width="14" x="5" y="2">
+        </rect>
+        <line x1="12" x2="12.01" y1="18" y2="18">
+        </line>
+       </svg>
+      </div>
+      <div style="font-family:var(--font-display);font-size:18px;font-weight:800;color:var(--color-danger);margin-bottom:8px;">
+       C&acirc;mera n&atilde;o dispon&iacute;vel
+      </div>
+      <p style="font-size:13px;color:var(--color-text-muted);line-height:1.6;margin-bottom:16px;">
+       N&atilde;o foi poss&iacute;vel acessar a c&acirc;mera do dispositivo.
+       <br/>
+       <br/>
+       <strong>
+        O reconhecimento facial &eacute; obrigat&oacute;rio para todos os saques
+       </strong>
+       &mdash; ele garante que somente voc&ecirc; pode sacar seus pontos.
+       <br/>
+       <br/>
+       Tente em um dispositivo com c&acirc;mera dispon&iacute;vel ou verifique as permiss&otilde;es do navegador.
+      </p>
+      <button class="btn btn-ghost btn-full" onclick="cancelFaceStep()">
+       &larr; Cancelar e voltar
+      </button>
+     </div>
+    </div>
+    <div class="term-footer" style="padding-top:12px;">
+     <button class="btn btn-ghost btn-sm" onclick="cancelFaceStep()">
+      &larr; Cancelar
+     </button>
+    </div>
+   </div>
+  </div>
+  <!-- ════════ PASSO 1.5 (1º SAQUE): DOCUMENTOS ════════ -->
+  <div class="term-fullscreen" id="docScreen">
+   <div class="term-card" style="max-width:520px;">
+    <!-- Header fixo -->
+    <div class="term-header">
+     <h2>
+      Cadastro de Documento
+     </h2>
+     <p>
+      Necess&aacute;rio apenas no
+      <strong>
+       primeiro saque
+      </strong>
+      . Envie seu RG ou CNH.
+     </p>
+    </div>
+    <!-- Área com scroll — igual ao termo -->
+    <div class="term-scroll-area" id="docContent">
+     <div style="background:var(--color-primary-light);border:1.5px solid var(--color-primary);border-radius:var(--radius-lg);padding:14px 16px;margin-bottom:20px;display:flex;align-items:flex-start;gap:12px;">
+      <span style="flex-shrink:0;color:var(--color-text-muted);display:flex;align-items:center;">
+       <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+        <rect height="11" rx="2" ry="2" width="18" x="3" y="11">
+        </rect>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4">
+        </path>
+       </svg>
+      </span>
+      <div style="font-size:13px;line-height:1.6;">
+       <strong>
+        Por que isso &eacute; necess&aacute;rio?
+       </strong>
+       <br/>
+       Para garantir sua seguran&ccedil;a verificamos sua identidade no primeiro saque. Seus documentos s&atilde;o armazenados com seguran&ccedil;a e n&atilde;o ser&atilde;o compartilhados.
+      </div>
+     </div>
+     <!-- Tipo do documento -->
+     <div class="form-group">
+      <label>
+       Tipo de Documento
+      </label>
+      <div style="display:flex;gap:10px;">
+       <button class="btn btn-primary" id="docTypeRG" onclick="selectDocType('rg')" style="flex:1;" type="button">
+        RG
+       </button>
+       <button class="btn btn-ghost" id="docTypeCNH" onclick="selectDocType('cnh')" style="flex:1;" type="button">
+        CNH
+       </button>
+      </div>
+      <input id="docTypeValue" type="hidden" value="rg"/>
+     </div>
+     <!-- Frente -->
+     <div class="form-group">
+      <label>
+       Frente do Documento
+       <span style="color:var(--color-danger);font-size:14px;">
+        *
+       </span>
+      </label>
+      <div id="docFrontPreviewWrap" onclick="document.getElementById('docFrontInput').click()" onmouseenter="this.style.borderColor='var(--color-primary)'" onmouseleave="this.style.borderColor='var(--color-border)'" style="width:100%;height:160px;border:2px dashed var(--color-border);border-radius:var(--radius-md);
                  display:flex;flex-direction:column;align-items:center;justify-content:center;
                  background:var(--color-surface-2);cursor:pointer;overflow:hidden;position:relative;
-                 transition:border-color .2s;"
-          onclick="document.getElementById('docFrontInput').click()"
-          onmouseenter="this.style.borderColor='var(--color-primary)'"
-          onmouseleave="this.style.borderColor='var(--color-border)'"><div id="docFrontPlaceholder" style="text-align:center;color:var(--color-text-muted);pointer-events:none;"><div style="font-size:36px;margin-bottom:8px;color:var(--color-text-muted);display:flex;align-items:center;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div><div style="font-size:14px;font-weight:600;">Toque aqui para enviar</div><div style="font-size:12px;margin-top:4px;opacity:.7;">JPG ou PNG • Máx. 5MB</div></div><img id="docFrontImg" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/></div><input type="file" id="docFrontInput" accept="image/*" style="display:none" onchange="previewDoc('front',this)"/><!-- Indicador de status --><div id="docFrontStatus" style="display:none;margin-top:6px;font-size:12px;color:var(--color-success);font-weight:600;">Frente enviada</div></div><!-- Verso --><div class="form-group"><label>Verso do Documento <span style="color:var(--color-danger);font-size:14px;">*</span></label><div id="docBackPreviewWrap"
-          style="width:100%;height:160px;border:2px dashed var(--color-border);border-radius:var(--radius-md);
+                 transition:border-color .2s;">
+       <div id="docFrontPlaceholder" style="text-align:center;color:var(--color-text-muted);pointer-events:none;">
+        <div style="font-size:36px;margin-bottom:8px;color:var(--color-text-muted);display:flex;align-items:center;justify-content:center;">
+         <svg fill="none" height="36" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="36" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
+          </path>
+          <polyline points="14 2 14 8 20 8">
+          </polyline>
+          <line x1="16" x2="8" y1="13" y2="13">
+          </line>
+          <line x1="16" x2="8" y1="17" y2="17">
+          </line>
+          <polyline points="10 9 9 9 8 9">
+          </polyline>
+         </svg>
+        </div>
+        <div style="font-size:14px;font-weight:600;">
+         Toque aqui para enviar
+        </div>
+        <div style="font-size:12px;margin-top:4px;opacity:.7;">
+         JPG ou PNG &bull; M&aacute;x. 5MB
+        </div>
+       </div>
+       <img id="docFrontImg" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/>
+      </div>
+      <input accept="image/*" id="docFrontInput" onchange="previewDoc('front',this)" style="display:none" type="file">
+       <!-- Indicador de status -->
+       <div id="docFrontStatus" style="display:none;margin-top:6px;font-size:12px;color:var(--color-success);font-weight:600;">
+        Frente enviada
+       </div>
+      </input>
+     </div>
+     <!-- Verso -->
+     <div class="form-group">
+      <label>
+       Verso do Documento
+       <span style="color:var(--color-danger);font-size:14px;">
+        *
+       </span>
+      </label>
+      <div id="docBackPreviewWrap" onclick="document.getElementById('docBackInput').click()" onmouseenter="this.style.borderColor='var(--color-primary)'" onmouseleave="this.style.borderColor='var(--color-border)'" style="width:100%;height:160px;border:2px dashed var(--color-border);border-radius:var(--radius-md);
                  display:flex;flex-direction:column;align-items:center;justify-content:center;
                  background:var(--color-surface-2);cursor:pointer;overflow:hidden;position:relative;
-                 transition:border-color .2s;"
-          onclick="document.getElementById('docBackInput').click()"
-          onmouseenter="this.style.borderColor='var(--color-primary)'"
-          onmouseleave="this.style.borderColor='var(--color-border)'"><div id="docBackPlaceholder" style="text-align:center;color:var(--color-text-muted);pointer-events:none;"><div style="font-size:36px;margin-bottom:8px;color:var(--color-text-muted);display:flex;align-items:center;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div><div style="font-size:14px;font-weight:600;">Toque aqui para enviar</div><div style="font-size:12px;margin-top:4px;opacity:.7;">JPG ou PNG • Máx. 5MB</div></div><img id="docBackImg" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/></div><input type="file" id="docBackInput" accept="image/*" style="display:none" onchange="previewDoc('back',this)"/><div id="docBackStatus" style="display:none;margin-top:6px;font-size:12px;color:var(--color-success);font-weight:600;">Verso enviado</div></div><!-- Espaço extra para garantir scroll completo em telas pequenas --><div style="height:8px;"></div></div><!-- /term-scroll-area --><!-- Footer fixo com botões --><div class="term-footer"><div style="display:flex;gap:10px;"><button class="btn btn-ghost" style="flex:1;" onclick="closeDocScreen()">← Voltar</button><button class="btn btn-primary" style="flex:2;" id="docNextBtn" onclick="goToFaceStepFromDoc()">
-          Próximo: Reconhecimento Facial
-        </button></div></div></div></div><!-- MODAL: RESPONDER CHAMADO --><div class="modal-overlay" id="manageTicketModal"><div class="modal" style="max-width:600px;"><div class="modal-header"><h3 id="manageTicketTitle">Detalhes do Chamado</h3><button class="modal-close" onclick="closeModal('manageTicketModal')"></button></div><div class="modal-body" style="max-height: 70vh; overflow-y: auto;"><input type="hidden" id="manageTicketId"/><div class="card card-padded" style="margin-bottom: 15px; background: var(--color-surface-2);"><div id="manageTicketInfo" style="font-size: 14px; line-height: 1.6;"></div><div id="manageTicketAttachment" style="margin-top: 10px;"></div></div><div id="manageTicketThread" style="margin-bottom: 15px; max-height: 200px; overflow-y: auto; padding: 10px; background: #f9f9f9; border-radius: var(--radius-md);"></div><div class="form-group"><label>Sua Resposta</label><textarea id="manageTicketReply" class="form-control" rows="3" placeholder="Digite sua resposta..."></textarea></div></div><div class="modal-footer"><button class="btn btn-ghost" onclick="closeModal('manageTicketModal')">Fechar</button><button class="btn btn-primary" onclick="Tickets.reply()">Enviar Resposta</button></div></div></div><!-- MODAL: CADASTRAR CLIENTE --><div class="modal-overlay" id="clientModal"><div class="modal" style="max-width:700px;"><div class="modal-header"><h3>Cadastrar Novo Cliente</h3><button class="modal-close" onclick="closeModal('clientModal')"></button></div><div class="modal-body" style="max-height: 70vh; overflow-y: auto;"><div style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px;"><div class="form-group"><label>CPF *</label><input type="text" id="clientCpf" class="form-control" placeholder="000.000.000-00"></div><div class="form-group"><label>Nome Completo *</label><input type="text" id="clientName" class="form-control" placeholder="Nome do cliente"></div><div class="form-group"><label>Telefone 1</label><input type="text" id="clientPhone1" class="form-control" placeholder="(00) 00000-0000"></div><div class="form-group"><label>Telefone 2</label><input type="text" id="clientPhone2" class="form-control" placeholder="(00) 00000-0000"></div><div class="form-group"><label>RG</label><input type="text" id="clientRg" class="form-control" placeholder="Número do RG"></div><div class="form-group"><label>Estado Civil</label><input type="text" id="clientCivil" class="form-control" placeholder="Solteiro, Casado..."></div><div class="form-group" style="grid-column: 1 / -1;"><label>Endereço Completo</label><input type="text" id="clientAddress" class="form-control" placeholder="Rua, Número, Bairro, Cidade"></div><div class="form-group"><label>Email</label><input type="text" id="clientEmail" class="form-control" placeholder="email@exemplo.com"></div><div class="form-group"><label>Nome da Mãe</label><input type="text" id="clientMother" class="form-control" placeholder="Nome da mãe"></div><div class="form-group" style="grid-column: 1 / -1;"><label>Nome do Pai</label><input type="text" id="clientFather" class="form-control" placeholder="Nome do pai"></div></div><h4 style="margin-top: 20px; margin-bottom: 10px;">Documentos do Cliente</h4><div style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px;"><div class="form-group"><label>RG Frente</label><div style="display:flex; gap:8px; align-items:center;"><input type="file" id="clientRgFront" class="form-control" accept="image/*,.pdf" style="flex:1;" onchange="updateFileLabel('clientRgFront', 'clientRgFrontLabel')"><button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('clientRgFront').click()" style="width:44px; height:44px; padding:0; display:inline-flex; align-items:center; justify-content:center;" title="Carregar Arquivo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg></button><span id="clientRgFrontLabel" class="prop-file-label">-</span></div></div><div class="form-group"><label>RG Verso</label><div style="display:flex; gap:8px; align-items:center;"><input type="file" id="clientRgBack" class="form-control" accept="image/*,.pdf" style="flex:1;" onchange="updateFileLabel('clientRgBack', 'clientRgBackLabel')"><button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('clientRgBack').click()" style="width:44px; height:44px; padding:0; display:inline-flex; align-items:center; justify-content:center;" title="Carregar Arquivo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg></button><span id="clientRgBackLabel" class="prop-file-label">-</span></div></div><div class="form-group" style="grid-column: 1 / -1;"><label>Comprovante de Endereço</label><div style="display:flex; gap:8px; align-items:center;"><input type="file" id="clientAddressDoc" class="form-control" accept="image/*,.pdf" style="flex:1;" onchange="updateFileLabel('clientAddressDoc', 'clientAddressDocLabel')"><button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('clientAddressDoc').click()" style="width:44px; height:44px; padding:0; display:inline-flex; align-items:center; justify-content:center;" title="Carregar Arquivo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg></button><span id="clientAddressDocLabel" class="prop-file-label">-</span></div></div></div></div><div class="modal-footer"><button class="btn btn-ghost" onclick="closeModal('clientModal')">Cancelar</button><button class="btn btn-primary" onclick="Clients.save()">Salvar Cliente</button></div></div></div><!-- MODAL: VISUALIZAR ANEXO --><div class="modal-overlay" id="attachmentViewerModal"><div class="modal" style="max-width:900px;"><div class="modal-header"><h3 id="attachmentViewerTitle">Anexo</h3><button class="modal-close" onclick="Proposals.closeAttachmentViewer()"></button></div><div class="modal-body" style="max-height:80vh;overflow:auto;padding:16px;"><div id="attachmentViewerBody" style="min-height:200px;"></div></div><div class="modal-footer"><button type="button" class="btn btn-outline btn-sm" id="attachmentViewerOpenExternal">Abrir em nova aba</button><button class="btn btn-ghost" onclick="Proposals.closeAttachmentViewer()">Fechar</button></div></div></div><!-- MODAL: VER / EDITAR PROPOSTA (VENDEDOR) --><div class="modal-overlay" id="employeeProposalModal"><div class="modal emp-prop-modal"><div class="modal-header"><h3 id="employeeProposalTitle">Proposta</h3><button type="button" class="modal-close" onclick="closeModal('employeeProposalModal')"></button></div><div class="modal-body emp-prop-modal__body"><input type="hidden" id="empPropId"><div class="card card-padded emp-prop-modal__summary"><div id="empPropClientInfo" class="emp-prop-modal__info"></div><div id="empPropClientDetail" class="emp-prop-modal__client-detail"></div><div id="empPropAttachments" class="emp-prop-modal__attachments"></div></div><h4 class="emp-prop-form__title">Dados editáveis</h4><div id="empPropEditFields" class="emp-prop-form"><div class="emp-prop-form__grid emp-prop-form__grid--3"><div class="form-group"><label>Matrícula</label><input type="text" id="empPropMatricula" class="form-control"></div><div class="form-group"><label>Senha Contracheque</label><input type="text" id="empPropSenhaCC" class="form-control"></div><div class="form-group"><label>Senha Consignação</label><input type="text" id="empPropSenhaConsig" class="form-control"></div></div><div class="emp-prop-form__grid emp-prop-form__grid--3"><div class="form-group"><label>Produto</label><select id="empPropProduct" class="form-control"><option value="">Selecione</option><option value="NOVO">NOVO</option><option value="COMPRA DE DÍVIDA">COMPRA DE DÍVIDA</option><option value="CARTÃO">CARTÃO</option></select></div><div class="form-group"><label>Convênio</label><select id="empPropConvenio" class="form-control" onchange="Proposals.updateEmployeeEntidades()"><option value="">Selecione</option><option value="FEDERAL">FEDERAL</option><option value="ESTADUAL">ESTADUAL</option><option value="MUNICIPAL">MUNICIPAL</option></select></div><div class="form-group"><label>Entidade</label><select id="empPropEntidade" class="form-control"><option value="">Selecione</option></select></div></div><div class="emp-prop-form__grid emp-prop-form__grid--2"><div class="form-group"><label>Situação da proposta</label><select id="empPropEtapa" class="form-control"><option value="">Selecione</option><option value="AG. BOLETO">Aguardando boleto</option><option value="Digitação">Digitação</option></select></div><div class="form-group"><label>Número de protocolo</label><input type="text" id="empPropProtocolo" class="form-control" placeholder="Ex.: 123456789"></div></div><div class="form-group emp-prop-form__full"><label>Observações</label><textarea id="empPropObs" class="form-control" rows="3"></textarea></div><div id="empPropAnexosUpload" class="emp-prop-form__files-block"><h4 class="emp-prop-form__subtitle">Documentos (opcional)</h4><p class="emp-prop-form__hint">Novos arquivos são somados aos já enviados.</p><div id="empPropAnexosFolders"></div><button type="button" class="btn btn-outline btn-sm" style="margin-top:10px;" onclick="Proposals.addCustomFolder(this)">+ Nova pasta</button></div></div><h4 class="emp-prop-form__title emp-prop-form__title--history">Histórico</h4><div id="empPropHistoryList"></div></div><div class="modal-footer"><button type="button" class="btn btn-ghost" id="empPropCancelBtn" onclick="closeModal('employeeProposalModal')">Cancelar</button><button type="button" class="btn btn-primary" id="empPropSaveBtn" onclick="Proposals.employeeSave()">Salvar</button></div></div></div><script src="../js/partners.js" defer></script><script src="../js/ui.js" defer></script><script src="../js/meetings.js" defer></script><script src="../js/clients.js" defer></script><script src="../js/simulacao.js" defer></script><script src="../js/profile.js" defer></script><script src="../js/store-shop.js" defer></script><script src="../js/trainings.js" defer></script><script src="../js/employee.js" defer></script><script src="../js/withdrawal-flow.js" defer></script></body></html>
+                 transition:border-color .2s;">
+       <div id="docBackPlaceholder" style="text-align:center;color:var(--color-text-muted);pointer-events:none;">
+        <div style="font-size:36px;margin-bottom:8px;color:var(--color-text-muted);display:flex;align-items:center;justify-content:center;">
+         <svg fill="none" height="36" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="36" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
+          </path>
+          <polyline points="14 2 14 8 20 8">
+          </polyline>
+          <line x1="16" x2="8" y1="13" y2="13">
+          </line>
+          <line x1="16" x2="8" y1="17" y2="17">
+          </line>
+          <polyline points="10 9 9 9 8 9">
+          </polyline>
+         </svg>
+        </div>
+        <div style="font-size:14px;font-weight:600;">
+         Toque aqui para enviar
+        </div>
+        <div style="font-size:12px;margin-top:4px;opacity:.7;">
+         JPG ou PNG &bull; M&aacute;x. 5MB
+        </div>
+       </div>
+       <img id="docBackImg" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/>
+      </div>
+      <input accept="image/*" id="docBackInput" onchange="previewDoc('back',this)" style="display:none" type="file">
+       <div id="docBackStatus" style="display:none;margin-top:6px;font-size:12px;color:var(--color-success);font-weight:600;">
+        Verso enviado
+       </div>
+      </input>
+     </div>
+     <!-- Espaço extra para garantir scroll completo em telas pequenas -->
+     <div style="height:8px;">
+     </div>
+    </div>
+    <!-- /term-scroll-area -->
+    <!-- Footer fixo com botões -->
+    <div class="term-footer">
+     <div style="display:flex;gap:10px;">
+      <button class="btn btn-ghost" onclick="closeDocScreen()" style="flex:1;">
+       &larr; Voltar
+      </button>
+      <button class="btn btn-primary" id="docNextBtn" onclick="goToFaceStepFromDoc()" style="flex:2;">
+       Pr&oacute;ximo: Reconhecimento Facial
+      </button>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- MODAL: RESPONDER CHAMADO -->
+  <div class="modal-overlay" id="manageTicketModal">
+   <div class="modal" style="max-width:600px;">
+    <div class="modal-header">
+     <h3 id="manageTicketTitle">
+      Detalhes do Chamado
+     </h3>
+     <button class="modal-close" onclick="closeModal('manageTicketModal')">
+     </button>
+    </div>
+    <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
+     <input id="manageTicketId" type="hidden">
+      <div class="card card-padded" style="margin-bottom: 15px; background: var(--color-surface-2);">
+       <div id="manageTicketInfo" style="font-size: 14px; line-height: 1.6;">
+       </div>
+       <div id="manageTicketAttachment" style="margin-top: 10px;">
+       </div>
+      </div>
+      <div id="manageTicketThread" style="margin-bottom: 15px; max-height: 200px; overflow-y: auto; padding: 10px; background: #f9f9f9; border-radius: var(--radius-md);">
+      </div>
+      <div class="form-group">
+       <label>
+        Sua Resposta
+       </label>
+       <textarea class="form-control" id="manageTicketReply" placeholder="Digite sua resposta..." rows="3"></textarea>
+      </div>
+     </input>
+    </div>
+    <div class="modal-footer">
+     <button class="btn btn-ghost" onclick="closeModal('manageTicketModal')">
+      Fechar
+     </button>
+     <button class="btn btn-primary" onclick="Tickets.reply()">
+      Enviar Resposta
+     </button>
+    </div>
+   </div>
+  </div>
+  <!-- MODAL: CADASTRAR CLIENTE -->
+  <div class="modal-overlay" id="clientModal">
+   <div class="modal" style="max-width:700px;">
+    <div class="modal-header">
+     <h3>
+      Cadastrar Novo Cliente
+     </h3>
+     <button class="modal-close" onclick="closeModal('clientModal')">
+     </button>
+    </div>
+    <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
+     <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+      <div class="form-group">
+       <label>
+        CPF *
+       </label>
+       <input class="form-control" id="clientCpf" placeholder="000.000.000-00" type="text"/>
+      </div>
+      <div class="form-group">
+       <label>
+        Nome Completo *
+       </label>
+       <input class="form-control" id="clientName" placeholder="Nome do cliente" type="text"/>
+      </div>
+      <div class="form-group">
+       <label>
+        Telefone 1
+       </label>
+       <input class="form-control" id="clientPhone1" placeholder="(00) 00000-0000" type="text"/>
+      </div>
+      <div class="form-group">
+       <label>
+        Telefone 2
+       </label>
+       <input class="form-control" id="clientPhone2" placeholder="(00) 00000-0000" type="text"/>
+      </div>
+      <div class="form-group">
+       <label>
+        RG
+       </label>
+       <input class="form-control" id="clientRg" placeholder="N&uacute;mero do RG" type="text"/>
+      </div>
+      <div class="form-group">
+       <label>
+        Estado Civil
+       </label>
+       <input class="form-control" id="clientCivil" placeholder="Solteiro, Casado..." type="text"/>
+      </div>
+      <div class="form-group" style="grid-column: 1 / -1;">
+       <label>
+        Endere&ccedil;o Completo
+       </label>
+       <input class="form-control" id="clientAddress" placeholder="Rua, N&uacute;mero, Bairro, Cidade" type="text"/>
+      </div>
+      <div class="form-group">
+       <label>
+        Email
+       </label>
+       <input class="form-control" id="clientEmail" placeholder="email@exemplo.com" type="text"/>
+      </div>
+      <div class="form-group">
+       <label>
+        Nome da M&atilde;e
+       </label>
+       <input class="form-control" id="clientMother" placeholder="Nome da m&atilde;e" type="text"/>
+      </div>
+      <div class="form-group" style="grid-column: 1 / -1;">
+       <label>
+        Nome do Pai
+       </label>
+       <input class="form-control" id="clientFather" placeholder="Nome do pai" type="text"/>
+      </div>
+     </div>
+     <h4 style="margin-top: 20px; margin-bottom: 10px;">
+      Documentos do Cliente
+     </h4>
+     <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+      <div class="form-group">
+       <label>
+        RG Frente
+       </label>
+       <div style="display:flex; gap:8px; align-items:center;">
+        <input accept="image/*,.pdf" class="form-control" id="clientRgFront" onchange="updateFileLabel('clientRgFront', 'clientRgFrontLabel')" style="flex:1;" type="file"/>
+        <button class="btn btn-outline btn-sm" onclick="document.getElementById('clientRgFront').click()" style="width:44px; height:44px; padding:0; display:inline-flex; align-items:center; justify-content:center;" title="Carregar Arquivo" type="button">
+         <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="vertical-align: middle;" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4">
+          </path>
+          <polyline points="17 8 12 3 7 8">
+          </polyline>
+          <line x1="12" x2="12" y1="3" y2="15">
+          </line>
+         </svg>
+        </button>
+        <span class="prop-file-label" id="clientRgFrontLabel">
+         -
+        </span>
+       </div>
+      </div>
+      <div class="form-group">
+       <label>
+        RG Verso
+       </label>
+       <div style="display:flex; gap:8px; align-items:center;">
+        <input accept="image/*,.pdf" class="form-control" id="clientRgBack" onchange="updateFileLabel('clientRgBack', 'clientRgBackLabel')" style="flex:1;" type="file"/>
+        <button class="btn btn-outline btn-sm" onclick="document.getElementById('clientRgBack').click()" style="width:44px; height:44px; padding:0; display:inline-flex; align-items:center; justify-content:center;" title="Carregar Arquivo" type="button">
+         <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="vertical-align: middle;" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4">
+          </path>
+          <polyline points="17 8 12 3 7 8">
+          </polyline>
+          <line x1="12" x2="12" y1="3" y2="15">
+          </line>
+         </svg>
+        </button>
+        <span class="prop-file-label" id="clientRgBackLabel">
+         -
+        </span>
+       </div>
+      </div>
+      <div class="form-group" style="grid-column: 1 / -1;">
+       <label>
+        Comprovante de Endere&ccedil;o
+       </label>
+       <div style="display:flex; gap:8px; align-items:center;">
+        <input accept="image/*,.pdf" class="form-control" id="clientAddressDoc" onchange="updateFileLabel('clientAddressDoc', 'clientAddressDocLabel')" style="flex:1;" type="file"/>
+        <button class="btn btn-outline btn-sm" onclick="document.getElementById('clientAddressDoc').click()" style="width:44px; height:44px; padding:0; display:inline-flex; align-items:center; justify-content:center;" title="Carregar Arquivo" type="button">
+         <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="vertical-align: middle;" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4">
+          </path>
+          <polyline points="17 8 12 3 7 8">
+          </polyline>
+          <line x1="12" x2="12" y1="3" y2="15">
+          </line>
+         </svg>
+        </button>
+        <span class="prop-file-label" id="clientAddressDocLabel">
+         -
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="modal-footer">
+     <button class="btn btn-ghost" onclick="closeModal('clientModal')">
+      Cancelar
+     </button>
+     <button class="btn btn-primary" onclick="Clients.save()">
+      Salvar Cliente
+     </button>
+    </div>
+   </div>
+  </div>
+  <!-- MODAL: VISUALIZAR ANEXO -->
+  <div class="modal-overlay" id="attachmentViewerModal">
+   <div class="modal" style="max-width:900px;">
+    <div class="modal-header">
+     <h3 id="attachmentViewerTitle">
+      Anexo
+     </h3>
+     <button class="modal-close" onclick="Proposals.closeAttachmentViewer()">
+     </button>
+    </div>
+    <div class="modal-body" style="max-height:80vh;overflow:auto;padding:16px;">
+     <div id="attachmentViewerBody" style="min-height:200px;">
+     </div>
+    </div>
+    <div class="modal-footer">
+     <button class="btn btn-outline btn-sm" id="attachmentViewerOpenExternal" type="button">
+      Abrir em nova aba
+     </button>
+     <button class="btn btn-ghost" onclick="Proposals.closeAttachmentViewer()">
+      Fechar
+     </button>
+    </div>
+   </div>
+  </div>
+  <!-- MODAL: VER / EDITAR PROPOSTA (VENDEDOR) -->
+  <div class="modal-overlay" id="employeeProposalModal">
+   <div class="modal emp-prop-modal">
+    <div class="modal-header">
+     <h3 id="employeeProposalTitle">
+      Proposta
+     </h3>
+     <button class="modal-close" onclick="closeModal('employeeProposalModal')" type="button">
+     </button>
+    </div>
+    <div class="modal-body emp-prop-modal__body">
+     <input id="empPropId" type="hidden"/>
+     <div class="card card-padded emp-prop-modal__summary">
+      <div class="emp-prop-modal__info" id="empPropClientInfo">
+      </div>
+      <div class="emp-prop-modal__client-detail" id="empPropClientDetail">
+      </div>
+      <div class="emp-prop-modal__attachments" id="empPropAttachments">
+      </div>
+     </div>
+     <h4 class="emp-prop-form__title">
+      Dados edit&aacute;veis
+     </h4>
+     <div class="emp-prop-form" id="empPropEditFields">
+      <div class="emp-prop-form__grid emp-prop-form__grid--3">
+       <div class="form-group">
+        <label>
+         Matr&iacute;cula
+        </label>
+        <input class="form-control" id="empPropMatricula" type="text"/>
+       </div>
+       <div class="form-group">
+        <label>
+         Senha Contracheque
+        </label>
+        <input class="form-control" id="empPropSenhaCC" type="text"/>
+       </div>
+       <div class="form-group">
+        <label>
+         Senha Consigna&ccedil;&atilde;o
+        </label>
+        <input class="form-control" id="empPropSenhaConsig" type="text"/>
+       </div>
+      </div>
+      <div class="emp-prop-form__grid emp-prop-form__grid--3">
+       <div class="form-group">
+        <label>
+         Produto
+        </label>
+        <select class="form-control" id="empPropProduct">
+         <option value="">
+          Selecione
+         </option>
+         <option value="NOVO">
+          NOVO
+         </option>
+         <option value="COMPRA DE D&Iacute;VIDA">
+          COMPRA DE D&Iacute;VIDA
+         </option>
+         <option value="CART&Atilde;O">
+          CART&Atilde;O
+         </option>
+        </select>
+       </div>
+       <div class="form-group">
+        <label>
+         Conv&ecirc;nio
+        </label>
+        <select class="form-control" id="empPropConvenio" onchange="Proposals.updateEmployeeEntidades()">
+         <option value="">
+          Selecione
+         </option>
+         <option value="FEDERAL">
+          FEDERAL
+         </option>
+         <option value="ESTADUAL">
+          ESTADUAL
+         </option>
+         <option value="MUNICIPAL">
+          MUNICIPAL
+         </option>
+        </select>
+       </div>
+       <div class="form-group">
+        <label>
+         Entidade
+        </label>
+        <select class="form-control" id="empPropEntidade">
+         <option value="">
+          Selecione
+         </option>
+        </select>
+       </div>
+      </div>
+      <div class="emp-prop-form__grid emp-prop-form__grid--2">
+       <div class="form-group">
+        <label>
+         Situa&ccedil;&atilde;o da proposta
+        </label>
+        <select class="form-control" id="empPropEtapa">
+         <option value="">
+          Selecione
+         </option>
+         <option value="AG. BOLETO">
+          Aguardando boleto
+         </option>
+         <option value="Digita&ccedil;&atilde;o">
+          Digita&ccedil;&atilde;o
+         </option>
+        </select>
+       </div>
+       <div class="form-group">
+        <label>
+         N&uacute;mero de protocolo
+        </label>
+        <input class="form-control" id="empPropProtocolo" placeholder="Ex.: 123456789" type="text"/>
+       </div>
+      </div>
+      <div class="form-group emp-prop-form__full">
+       <label>
+        Observa&ccedil;&otilde;es
+       </label>
+       <textarea class="form-control" id="empPropObs" rows="3"></textarea>
+      </div>
+      <div class="emp-prop-form__files-block" id="empPropAnexosUpload">
+       <h4 class="emp-prop-form__subtitle">
+        Documentos (opcional)
+       </h4>
+       <p class="emp-prop-form__hint">
+        Novos arquivos s&atilde;o somados aos j&aacute; enviados.
+       </p>
+       <div id="empPropAnexosFolders">
+       </div>
+       <button class="btn btn-outline btn-sm" onclick="Proposals.addCustomFolder(this)" style="margin-top:10px;" type="button">
+        + Nova pasta
+       </button>
+      </div>
+     </div>
+     <h4 class="emp-prop-form__title emp-prop-form__title--history">
+      Hist&oacute;rico
+     </h4>
+     <div id="empPropHistoryList">
+     </div>
+    </div>
+    <div class="modal-footer">
+     <button class="btn btn-ghost" id="empPropCancelBtn" onclick="closeModal('employeeProposalModal')" type="button">
+      Cancelar
+     </button>
+     <button class="btn btn-primary" id="empPropSaveBtn" onclick="Proposals.employeeSave()" type="button">
+      Salvar
+     </button>
+    </div>
+   </div>
+  </div>
+  <script defer="" src="../js/partners.js">
+  </script>
+  <script defer="" src="../js/ui.js">
+  </script>
+  <script defer="" src="../js/meetings.js">
+  </script>
+  <script defer="" src="../js/clients.js">
+  </script>
+  <script defer="" src="../js/simulacao.js">
+  </script>
+  <script defer="" src="../js/profile.js">
+  </script>
+  <script defer="" src="../js/store-shop.js">
+  </script>
+  <script defer="" src="../js/trainings.js">
+  </script>
+  <script defer="" src="../js/employee.js">
+  </script>
+  <script defer="" src="../js/withdrawal-flow.js">
+  </script>
+ </body>
+</html>
